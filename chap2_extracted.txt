@@ -1,0 +1,178 @@
+--- 2.1 Security Goals, Security trends - Attacks, Services and Mechanisms.pdf ---
+Unit-2 
+INTRODUCTION AND MATHEMATICAL 
+FOUNDATIONS FOR INFORMATION 
+SECURITY 
+2.1 Security Goals, Security trends - Attacks, Services and Mechanisms 
+Outline
+Introduction to Cryptography and Network 
+Security
+Security Goals
+Cryptographic attacks
+Cryptology
+Security Services
+Security Mechanism
+Introduction to CRNS
+ Cryptography:
+It is a word with Greek origin whose meaning is “hidden/secret
+writing”.
+The Oxford Dictionary (2006) defines cryptography as the art of
+writing or solving codes.
+The art and science of keeping message secure from others.
+To enable two people to communicate over insecure channel in
+such a way that opponent cannot understand what is being said.
+Mechanism of achieving security by encoding/ converting the
+original message into some another form in such a way that
+message becomes unintelligible.
+Hard to 
+understand 
+Continue…
+Allows us to scramble/descramble the text in such a 
+way that they would appear meaningless.
+To understand the Cryptography:
+Nu...
+
+--- 2.2.pdf ---
+Symmetric Key 
+Encipherment 
+Outline
+ Cryptosystem
+ Cryptanalysis Attack
+ Modular Arithmetic
+ Additive Cipher
+ Ceaser Cipher
+ Multiplicative Cipher
+ Affine Cipher
+ Monoalphabetic Substitution Cipher
+ Playfair
+ Vigenere
+ Autokey
+ Hill Cipher
+ Transposition Ciphers
+ Block cipher vs Stream Ciphers
+Basic Cryptosystem
+Encryption 
+Algorithm
+Decryption 
+Algorithm
+Plain Text Cipher Text Plain Text
+Secret Key
+Alice BoB
+Secret Key
+Continue…
+ Plain Text – Original Message
+ Cipher Text - the scrambled message produced as output  
+ Encryption Algorithm - performs various substitutions and 
+transformations on the plaintext
+ Decryption Algorithm - the encryption algorithm run in reverse
+ Secret Key - input to the encryption algorithm
+ The key is a value independent of the plaintext and of the 
+algorithm. The algorithm will produce a different output 
+depending on the specific key being used at the time.
+Types of Cryptographic
+ Cryptographic systems are characterized along three 
+...
+
+--- 2.3.1.pdf ---
+Introduction to Number 
+Theory
+Objectives
+› Congruence: Modular Arithmetic
+› Introduction to field theory 
+› Euler Totient Function 
+› Fermat’s Little Theorem
+Congruence
+› We say that a is congruent to b modulo m, and we write a ≡ b 
+mod m, if m divides b - a.
+•  Example: -2 ≡ 19 (mod 21), 20 ≡ 0 (mod 10).
+› Congruence modulo m is an equivalence relation  on the 
+integers. 
+– any integer is congruent to itself modulo m (reflexivity)
+– a ≡ b mod m, implies that b ≡ a mod m (symmetry)
+– a ≡ b mod m and b ≡ c mod m implies a ≡ c mod m (transitivity)
+
+Concept of congruence
+
+The following are equivalent
+› a ≡ b mod m
+› There is k ε Z, with a = b + km
+› When divided by m, both a and b leave the  same remainder.
+› Equivalence Class of a modulo m consists  of all integers that 
+are obtained by adding a with integral multiples of m
+– called residue class of a mod m
+Example
+› Residue class of 1 mod 4:
+– {1, 1 ± 4, 1 ± 2 * 4, 1 ± 3 * 4,…}
+› The set of residue classes mod m is denoted by Z/mZ.
+– i...
+
+--- 2.3.2.pdf ---
+More Number Theoretic 
+Results
+Objectives
+› Chinese Remainder Theorem (CRT)
+– expressing the whole in parts
+› Cyclic groups and a test for primitive-ness
+The Chinese Remainder Theorem (CRT) 
+› It solves a system of congruence.
+› Suppose m1, m2,…,mr are pairwise relatively prime positive 
+integers.
+› System of congruence:
+
+Example
+› x ≡3 mod 5
+› x ≡1 mod 3
+› x ≡ ? mod 15
+› You can verify that the only answer is 13 mod 15. The 
+first thing to explain why there is only one solution?
+Uniqueness
+› X(x)=(x mod 5, x mod 3)
+Note that the mapping is bijective…
+Solution To Chinese Remainder Theorem
+› Find M = m1 × m2 × … × mk. This is the common modulus.
+› Find M1 = M/m1, M2 = M/m2, …, Mk = M/mk.
+› Find the multiplicative inverse of M1, M2, …, Mk using the 
+corresponding moduli (m1, m2, …, mk). Call the inverses           
+M1
+−1, M2
+−1, …, Mk −1.
+› The solution to the simultaneous equations is
+
+Example
+› M = 5x3 = 15
+› M1 = 15/5 = 3, 3-1mod 5=2
+› M2 = 15/3 = 5, 5-1mod 3=2
+› x = (3x3x2+1x5x2) mod...
+
+--- 2.3.pdf ---
+Introduction to Number 
+Theory
+Objectives
+› Congruence: Modular Arithmetic
+› Introduction to field theory 
+› Euler Totient Function 
+› Fermat’s Little Theorem
+Congruence
+› We say that a is congruent to b modulo m, and we write a ≡ b 
+mod m, if m divides b - a.
+•  Example: -2 ≡ 19 (mod 21), 20 ≡ 0 (mod 10).
+› Congruence modulo m is an equivalence relation  on the 
+integers. 
+– any integer is congruent to itself modulo m (reflexivity)
+– a ≡ b mod m, implies that b ≡ a mod m (symmetry)
+– a ≡ b mod m and b ≡ c mod m implies a ≡ c mod m (transitivity)
+
+Concept of congruence
+
+Divisibility
+› a nonzero b divides a if a = mb for some m, where a, b, 
+and m are integers.
+› if b | a, we say that b is a divisor of a.
+› If b | g and b | h, then b | (mg + nh) for arbitrary 
+integers m and n.
+Greatest Common Divisor (GCD)
+› The positive integer c is said to be the greatest common 
+divisor of a and b if
+1. c is a divisor of a and of b.
+2. Any divisor of a and b is a divisor of c.
+› An equivalent defini...
