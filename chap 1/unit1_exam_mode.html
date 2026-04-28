@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Basic Concepts of Information Security (University Exam Edition)</title>
+    <style>
+        :root {
+            --primary: #1a252f;
+            --secondary: #2980b9;
+            --accent: #c0392b;
+            --light: #ecf0f1;
+            --success: #27ae60;
+            --text: #2c3e50;
+            --border: #bdc3c7;
+        }
+        body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; display: flex; height: 100vh; overflow: hidden; background: #fff; color: var(--text); }
+        
+        #sidebar { width: 340px; background: var(--primary); color: white; display: flex; flex-direction: column; overflow-y: auto; }
+        #sidebar h2 { padding: 25px 20px; margin: 0; font-size: 1.3rem; border-bottom: 2px solid #34495e; background: #151e27; }
+        .nav-btn { background: none; border: none; color: #95a5a6; padding: 18px 25px; text-align: left; cursor: pointer; font-size: 1.05rem; border-bottom: 1px solid #2c3e50; transition: all 0.2s; font-weight: 500; }
+        .nav-btn:hover { background: #34495e; color: white; border-left: 5px solid var(--secondary); padding-left: 20px; }
+        .nav-btn.active { background: var(--secondary); color: white; border-left: 5px solid #fff; padding-left: 20px; }
+        
+        #main-content { flex: 1; padding: 50px 80px; overflow-y: auto; line-height: 1.8; font-size: 1.15rem; scroll-behavior: smooth; }
+        .page-section { display: none; animation: fadeIn 0.4s ease-in-out; max-width: 900px; margin: 0 auto; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        h1 { color: var(--primary); border-bottom: 4px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5rem; }
+        h2 { color: var(--secondary); margin-top: 40px; font-size: 1.8rem; }
+        h3 { color: #34495e; font-size: 1.4rem; border-left: 4px solid var(--accent); padding-left: 10px; margin-top:30px; }
+        
+        .exam-note { background: #fdf2e9; border: 1px solid #ebdef0; border-left: 5px solid #e67e22; padding: 20px; border-radius: 4px; margin: 25px 0; font-style: italic; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+        .exam-note::before { content: "🎓 Exam Strategy: "; font-weight: bold; color: #d35400; font-style: normal; }
+        
+        .def-table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .def-table th, .def-table td { border: 1px solid var(--border); padding: 15px; text-align: left; }
+        .def-table th { background: var(--primary); color: white; }
+        .def-table tr:nth-child(even) { background: #f8f9fa; }
+        
+        .interactive-box { background: white; padding: 30px; border: 2px solid var(--secondary); border-radius: 8px; margin: 40px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body { flex-direction: column; overflow: auto; height: auto; }
+            #sidebar { width: 100%; max-height: 250px; overflow-y: auto; flex-shrink: 0; }
+            #sidebar h2 { font-size: 1.1rem; padding: 15px 20px; }
+            .nav-btn { padding: 12px 20px; font-size: 0.95rem; }
+            #main-content { padding: 25px; margin: 0; flex: none; overflow-y: visible; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .def-table th, .def-table td { padding: 10px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h2>ITUE205 Unit 1<br><small style="color:#bdc3c7; font-weight:400; font-size:0.9rem; margin-top:5px; display:block;">University Exam Prep (6 Hrs)</small></h2>
+        <button class="nav-btn active" onclick="showPage('page1', this)">1.1 Intro & Terminologies</button>
+        <button class="nav-btn" onclick="showPage('page2', this)">1.2 CIA Implementation Issues</button>
+        <button class="nav-btn" onclick="showPage('page3', this)">1.3 Control Mechanisms</button>
+        <button class="nav-btn" onclick="showPage('page4', this)">1.4 Access Control Models</button>
+        <button class="nav-btn" onclick="showPage('page5', this)">1.5 Password Security</button>
+        <button class="nav-btn" onclick="showPage('page6', this)">1.6 Hashes & Attack Vectors</button>
+        <button class="nav-btn" onclick="showPage('page7', this)">1.7 MFA Architectures & Challenges</button>
+        <button class="nav-btn" onclick="showPage('page8', this)">1.8 Spheres of InfoSec (Defense in Depth)</button>
+    </div>
+
+    <div id="main-content">
+        
+        <!-- 1.1 Intro -->
+        <div id="page1" class="page-section active">
+            <h1>1.1 Introduction to Information Security</h1>
+            <p>Information Security (InfoSec) is the protection of information systems and networks from unauthorized access, use, disclosure, disruption, modification, or destruction. At the university level, exams focus not just on "what" these are, but "how" they interact structurally.</p>
+            
+            <h2>Core Terminologies</h2>
+            <table class="def-table">
+                <tr><th>Term</th><th>Definitive Academic Meaning</th></tr>
+                <tr><td><strong>Asset</strong></td><td>Organizational resource under evaluation. Divided into Tangible (servers, facilities) and Intangible (IP, reputation, raw data).</td></tr>
+                <tr><td><strong>Threat</strong></td><td>An external/internal circumstance or event with the potential to adversely impact organizational operations.</td></tr>
+                <tr><td><strong>Vulnerability</strong></td><td>A weakness in an information system, system security procedures, internal controls, or implementation that could be exploited by a threat source.</td></tr>
+                <tr><td><strong>Exploit</strong></td><td>The specific mechanism or technique used to take advantage of a vulnerability.</td></tr>
+                <tr><td><strong>Risk</strong></td><td>A measure of the extent to which an entity is threatened by a potential circumstance or event. Typically expressed as a function of the adverse impacts (Impact) and the likelihood of occurrence. <em>Risk = Threat Likelihood × Vulnerability × Impact</em>.</td></tr>
+            </table>
+
+            <h2>The CIA Triad</h2>
+            <p>The foundational bedrock of InfoSec (referencing Forouzan).</p>
+            <ul>
+                <li><strong>Confidentiality:</strong> Guaranteeing that data is not disclosed to unauthorized individuals, processes, or devices. Enforced via Encryption, Access Control, and Steganography. Defends against network sniffing and traffic analysis.</li>
+                <li><strong>Integrity:</strong> Guarding against improper information modification or destruction. Ensures Non-Repudiation and Authenticity. Enforced via cryptographic hash functions (SHA), digital signatures, and strict role segregation.</li>
+                <li><strong>Availability:</strong> Ensuring timely and reliable access to and use of information. Sustained through hardware redundancy (RAID), failover clusters, and DoS mitigation infrastructures limit the risk of downtime.</li>
+            </ul>
+
+            <div class="exam-note">
+                Dr. Khushi Patel often looks for the interdependencies. E.g., Explain how implementing strong confidentiality (heavy TLS encryption overhead) can detrimentally impact availability (due to processor bottlenecking on boundary firewalls). Link these concepts dynamically in long-answer questions.
+            </div>
+        </div>
+
+        <!-- 1.2 Implementation Issues -->
+        <div id="page2" class="page-section">
+            <h1>1.2 Implementation Issues of Security Goals</h1>
+            <p>Theoretical security is absolute (an air-gapped system locked in a vault). Practical security is a constant compromise.</p>
+            
+            <h2>Strategic Challenges and Trade-offs</h2>
+            
+            <h3>1. The Usability-Security Inverse Relationship</h3>
+            <p>A highly secure system often creates immense user friction. If passwords must be 20 characters and rotate every 15 days, users write them down (defeating the control). This is known as "Security Fatigue." Exam answer key: Highlight that security must scale with the risk appetite, not overwhelm it.</p>
+
+            <h3>2. Overhead and Performance Degradation</h3>
+            <p>Cryptographic operations require significant compute overhead. Encrypting data-at-rest requires localized processing power, whereas encrypting data-in-transit (IPsec/TLS) requires robust network packet processing. Both reduce raw performance metrics.</p>
+
+            <h3>3. Cost-Benefit Analysis (Quantitative vs Qualitative Risk)</h3>
+            <p>Implementing security is a cost center. Organizations struggle to measure the ROI because a successful security program results in <em>nothing happening</em>. <br>
+            <strong>Rule:</strong> The Annualized Cost of the Safeguard (ACS) must be less than the Annualized Loss Expectancy (ALE) without the safeguard.</p>
+
+            <h3>4. Legal, Compliance, and Privacy Overlap</h3>
+            <p>Security mechanisms themselves can breach policy. Inspecting SSL/TLS traffic (to detect malware) involves decrypting employee communications, which may violate regional privacy acts (e.g., GDPR, local wiretapping laws).</p>
+        </div>
+
+        <!-- 1.3 Control Mechanisms -->
+        <div id="page3" class="page-section">
+            <h1>1.3 Control Mechanisms for Information Security</h1>
+            <p>Controls are the countermeasures. For an end-semester exam, you must distinguish between <strong>Categories/Classes</strong> and <strong>Types/Functions</strong>.</p>
+
+            <h2>Categories of Controls (The "How")</h2>
+            <ul>
+                <li><strong>Management / Administrative:</strong> The "paperwork" layer. Defines the scope. Examples: Risk assessments, Acceptable Use Policies (AUP), employee onboarding, disaster recovery planning.</li>
+                <li><strong>Technical / Logical:</strong> The "digital" layer. Software/hardware enforcing the rules. Examples: Intrusion Prevention Systems (IPS), Next-Gen Firewalls, IAM systems, Multi-Factor Auth (MFA).</li>
+                <li><strong>Physical / Operational:</strong> The "real world" layer. Examples: Biometric turnstiles, HVAC systems (for server availability), mantraps, rack locks.</li>
+            </ul>
+
+            <h2>Functions of Controls (The "When")</h2>
+            <table class="def-table">
+                <tr><th>Function</th><th>Purpose & Timing</th><th>Example</th></tr>
+                <tr><td><strong>Preventive</strong></td><td>Proactive. Stops an incident before it occurs.</td><td>Firewall dropping unauthorized ingress packets; Security Guard.</td></tr>
+                <tr><td><strong>Detective</strong></td><td>Reactive. Identifies an incident is underway/occurred.</td><td>IDS alerting a SOC; SIEM log analysis; CCTV monitoring.</td></tr>
+                <tr><td><strong>Corrective</strong></td><td>Post-incident. Reverses the damage to a known standard.</td><td>Restoring from secure offsite backups; Antivirus terminating a process.</td></tr>
+                <tr><td><strong>Deterrent</strong></td><td>Psychological. Discourages an attacker.</td><td>"Warning: Prosecuted to full extent of law" banners; visible cameras.</td></tr>
+                <tr><td><strong>Compensating</strong></td><td>Alternative. Used when primary control is impossible.</td><td>Adding heavy logical tracking because physical limits prevent a mantrap.</td></tr>
+            </table>
+        </div>
+
+        <!-- 1.4 Access Control -->
+        <div id="page4" class="page-section">
+            <h1>1.4 Access Control - Administrative and Technical</h1>
+            <p>Access control dictates how a Subject (Client/User) interacts with an Object (File/Server). It requires 3 phases: <strong>Identification</strong> (claiming identity), <strong>Authentication</strong> (proving identity), and <strong>Authorization</strong> (evaluating permissions).</p>
+
+            <h2>Formal Access Control Models</h2>
+            
+            <h3>1. Discretionary Access Control (DAC)</h3>
+            <p>The owner (creator) of the object dictates access. Access Control Lists (ACLs) store these permissions. <em>Vulnerability:</em> Susceptible to Trojan horses; a user can easily grant access to an unauthorized party. Used in standard Windows NTFS / Linux Ext4 file systems.</p>
+
+            <h3>2. Mandatory Access Control (MAC)</h3>
+            <p>The operating system overrides the user. Dependent on strict security labels (Clearances for Subjects, Labels for Objects - e.g., "Top Secret"). It enforces the Bell-LaPadula model (No Read Up, No Write Down). Crucial for military-grade data segregation.</p>
+
+            <h3>3. Role-Based Access Control (RBAC)</h3>
+            <p>Access decisions are based on the user's role/job function within an enterprise, vastly simplifying administration. User -> Role -> Permission. This is the industry standard for scalable organizational security.</p>
+            
+            <h3>4. Attribute-Based Access Control (ABAC)</h3>
+            <p>The most granular model. Evaluates boolean logic using Subject attributes (Title=Manager), Object attributes (Data=Financial), and Environment attributes (Time=09:00-17:00, Location=OnPremise).</p>
+
+            <div class="exam-note">
+                <strong>Administrative Principles to master:</strong><br>
+                - <em>Separation of Duties (SoD):</em> No single transaction can be completed by one subject end-to-end to prevent fraud.<br>
+                - <em>Principle of Least Privilege (PoLP):</em> Subjects are granted bare-minimum permissions necessary for their role.
+            </div>
+        </div>
+
+        <!-- 1.5/1.6 Password Deep Dive -->
+        <div id="page5" class="page-section">
+            <h1>1.5 to 1.6 Passwords, Hash Functions, & Threats</h1>
+            <p>Knowledge-based authentication is statistically the weakest link due to physiological limits on memory (low entropy passwords used by humans) and computational advancements in cracking.</p>
+
+            <h2>Understanding Cryptographic Hashes</h2>
+            <p>Passwords must never be stored in plaintext. They are passed through a deterministic one-way cryptographic algorithm (like SHA-256 or bcrypt) that outputs a fixed-length string (a Digest). When authenticating, the system hashes the provided input and performs a string-comparison against the database.</p>
+            <p><strong>Core Hash Properties required for InfoSec:</strong></p>
+            <ul>
+                <li><strong>Pre-image Resistance:</strong> Computationally infeasible to reverse the hash back to the original password.</li>
+                <li><strong>Collision Resistance:</strong> Infeasible to find two different input messages that hash to the exact same output.</li>
+            </ul>
+
+            <h2>Threat Vectors & Defenses</h2>
+            <table class="def-table">
+                <tr><th>Attack Type</th><th>Mechanism</th><th>Defense</th></tr>
+                <tr><td><strong>Brute-Force</strong></td><td>Attempting every mathematical permutation of a character space.</td><td>Account lockout thresholds; requiring longer password lengths (increases permutation space exponentially).</td></tr>
+                <tr><td><strong>Dictionary Attack</strong></td><td>Using extensive pre-compiled lists of common words/passwords from previous breaches.</td><td>Complexity requirements (Symbols/Numbers); Blacklisting known-bad passwords.</td></tr>
+                <tr><td><strong>Rainbow Tables</strong></td><td>Massive databases of pre-computed hash-to-password mappings to instantly reverse a hash.</td><td><strong>Salting:</strong> Appending random bits to a password *before* hashing. Ruins pre-compiled tables.</td></tr>
+            </table>
+
+            <div class="exam-note">
+                If the exam asks for advanced password defense, mention <strong>Key Stretching</strong> algorithms (bcrypt, PBKDF2). These intentionally slow down the hashing process linearly, making brute-force mathematically impossible within a standard human lifetime.
+            </div>
+        </div>
+
+        <!-- 1.7 MFA -->
+        <div id="page7" class="page-section">
+            <h1>1.7 Multifactor Authentication (MFA) – Enterprise Challenges</h1>
+            <p>True MFA requires combining authentication parameters from at least two <strong>different</strong> categories.</p>
+            
+            <h3>The Categories (Factors)</h3>
+            <ol>
+                <li><strong>Something you know (Knowledge):</strong> Passwords, PINs, Security Questions.</li>
+                <li><strong>Something you have (Possession):</strong> Smart Cards, Hardware FIDO/YubiKeys, Authenticator Apps (TOTP), SMS (Deprecated by NIST).</li>
+                <li><strong>Something you are (Inherence):</strong> Fingerprints, Retina scans, Facial geometry.</li>
+            </ol>
+
+            <h3>Implementation & Threat Challenges</h3>
+            <p>MFA is not a silver bullet. You must articulate its vulnerabilities for full marks:</p>
+            <ul>
+                <li><strong>SIM Swapping (Possession Bypass):</strong> Attackers use social engineering against telecom providers to port the victim's phone number to an attacker-controlled SIM, intercepting SMS MFA tokens.</li>
+                <li><strong>Biometric Inmutability (Inherence Vulnerability):</strong> Unlike a password, if someone steals your fingerprint data from a breached database, you cannot "reset" your fingerprint.</li>
+                <li><strong>MFA Fatigue (Push Bombing):</strong> Attackers repeatedly trigger login requests until an exhausted employee clicks "Accept" on their phone to stop the notifications.</li>
+                <li><strong>Crossover Error Rates (CER):</strong> In biometric systems, the challenge of balancing False Acceptance Rates (FAR - bad guy gets in) against False Rejection Rates (FRR - good guy gets blocked). The equilibrium point is the CER.</li>
+            </ul>
+        </div>
+
+        <!-- 1.8 Spheres -->
+        <div id="page8" class="page-section">
+            <h1>1.8 Spheres of Information Security</h1>
+            <p>Information security is visualized as concentric spheres, representing the architectural concept of <strong>Defense-in-Depth (Layered Security)</strong>. If an attacker breaches one layer, they are immediately confronted with a different type of control mechanism.</p>
+            
+            <div style="background: #eaf2f8; padding: 20px; border-radius: 120px; text-align: center; width: 70%; margin: 30px auto; border: 2px dashed var(--secondary);">
+                <strong style="color:#2c3e50; font-size:1.1rem;">Management / Policy Layer (Outer Sphere)</strong><br>
+                <span style="font-size:0.9rem; color:#7f8c8d;">AUPs, ISMS Frameworks, Legal Compliance</span>
+                
+                <div style="background: #a9cce3; padding: 20px; border-radius: 120px; margin-top: 15px; border: 2px solid var(--secondary);">
+                    <strong style="color:#1a252f; font-size:1.1rem;">Network & Host Systems (Middle Sphere)</strong><br>
+                    <span style="font-size:0.9rem; color:#2c3e50;">Firewalls, IDS/IPS, Antivirus, Access Control Lists</span>
+                    
+                    <div style="background: #e74c3c; color:white; padding: 25px; border-radius: 120px; margin-top: 15px; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);">
+                        <strong style="font-size:1.2rem; letter-spacing:1px;">Core Information Asset</strong><br>
+                        <span style="font-size:0.9rem; opacity:0.9;">Data-at-Rest Encryption</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Exam Context:</strong> The core of the sphere represents the data (the ultimate target). The outer spheres are the security layers. Discuss the NSTISSC Security Model (The McCumber Cube) which models 3 dimensions: Security Goals (CIA), Data States (Storage, Processing, Transmission), and Countermeasures (Technology, Policy/Practice, Human factors). The intersection of these cubes represents complete spherical coverage.</p>
+        </div>
+
+    </div>
+
+    <script>
+        function showPage(pageId, element) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            element.classList.add('active');
+            document.getElementById('main-content').scrollTop = 0;
+            if (window.innerWidth <= 768) {
+                document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Basic Concepts of Information Security</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --success: #27ae60;
+            --text: #333;
+        }
+        body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; display: flex; height: 100vh; overflow: hidden; background: #f9f9f9; color: var(--text); }
+        
+        /* Sidebar Navigation */
+        #sidebar { width: 300px; background: var(--primary); color: white; display: flex; flex-direction: column; overflow-y: auto; }
+        #sidebar h2 { padding: 20px; margin: 0; font-size: 1.2rem; border-bottom: 1px solid #34495e; text-align: center; }
+        .nav-btn { background: none; border: none; color: #bdc3c7; padding: 15px 20px; text-align: left; cursor: pointer; font-size: 1rem; border-bottom: 1px solid #34495e; transition: 0.3s; }
+        .nav-btn:hover, .nav-btn.active { background: var(--secondary); color: white; padding-left: 25px; }
+        
+        /* Main Content */
+        #main-content { flex: 1; padding: 40px; overflow-y: auto; background: white; margin: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .page-section { display: none; animation: fadeIn 0.5s; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 10px; }
+        h3 { color: var(--secondary); }
+        p, li { line-height: 1.6; font-size: 1.1rem; }
+        
+        /* Interactive Blocks */
+        .interactive-box { background: var(--light); padding: 20px; border-left: 5px solid var(--secondary); border-radius: 5px; margin: 20px 0; }
+        .quiz-btn { background: var(--secondary); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-right: 10px; margin-top: 10px;}
+        .quiz-btn:hover { background: #2980b9; }
+        .feedback { font-weight: bold; margin-top: 10px; display: block; }
+        
+        .vocab-word { font-weight: bold; color: var(--accent); cursor: help; border-bottom: 1px dashed var(--accent); }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body { flex-direction: column; overflow: auto; height: auto; }
+            #sidebar { width: 100%; max-height: 250px; overflow-y: auto; flex-shrink: 0; }
+            #sidebar h2 { font-size: 1.1rem; padding: 15px; }
+            .nav-btn { padding: 12px 20px; font-size: 0.95rem; }
+            #main-content { padding: 20px; margin: 10px; flex: none; overflow-y: visible; border-radius: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar">
+        <h2>ITUE205 - Unit 1<br><small style="font-weight:normal; font-size:0.8rem; color:#ccc;">Basic Concepts of InfoSec</small></h2>
+        <button class="nav-btn active" onclick="showPage('page1', this)">1.1 Intro & Terminologies</button>
+        <button class="nav-btn" onclick="showPage('page2', this)">1.2 Implementation Issues</button>
+        <button class="nav-btn" onclick="showPage('page3', this)">1.3 Control Mechanisms</button>
+        <button class="nav-btn" onclick="showPage('page4', this)">1.4 Access Control</button>
+        <button class="nav-btn" onclick="showPage('page5', this)">1.5 Passwords Overview</button>
+        <button class="nav-btn" onclick="showPage('page6', this)">1.6 Hashes & Threats</button>
+        <button class="nav-btn" onclick="showPage('page7', this)">1.7 Multifactor Auth (MFA)</button>
+        <button class="nav-btn" onclick="showPage('page8', this)">1.8 Spheres of Security</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+        
+        <!-- 1.1 Intro -->
+        <div id="page1" class="page-section active">
+            <h1>1.1 Introduction to Information Security</h1>
+            <h3>Core Terminologies</h3>
+            <ul>
+                <li><span class="vocab-word" title="Anything of value to the organization (data, hardware, reputation)">Asset</span>: What we are protecting.</li>
+                <li><span class="vocab-word" title="A weakness in the system">Vulnerability</span>: A flaw or weakness in security procedures, design, or implementation.</li>
+                <li><span class="vocab-word" title="A potential danger">Threat</span>: A potential cause of an unwanted impact to a system or organization.</li>
+                <li><span class="vocab-word" title="An intentional act to cause harm">Attack</span>: An intentional attempt to exploit a vulnerability.</li>
+            </ul>
+
+            <h3>Goals of Information Security (The CIA Triad)</h3>
+            <p>The foundation of all security implementations is the CIA Triad:</p>
+            <ul>
+                <li><strong>Confidentiality:</strong> Ensuring only authorized users access data.</li>
+                <li><strong>Integrity:</strong> Ensuring data is not altered or corrupted.</li>
+                <li><strong>Availability:</strong> Ensuring systems and data are available to authorized users when needed.</li>
+            </ul>
+
+            <div class="interactive-box">
+                <h4>Quiz: CIA Triad</h4>
+                <p>A DoS (Denial of Service) attack taking down a website primarily violates which goal?</p>
+                <button class="quiz-btn" onclick="checkQ1('C')">Confidentiality</button>
+                <button class="quiz-btn" onclick="checkQ1('I')">Integrity</button>
+                <button class="quiz-btn" onclick="checkQ1('A')">Availability</button>
+                <span id="fb-q1" class="feedback"></span>
+            </div>
+        </div>
+
+        <!-- 1.2 Implementation Issues -->
+        <div id="page2" class="page-section">
+            <h1>1.2 Implementation Issues of the Goals</h1>
+            <p>Implementing the CIA Triad is not without challenges. In the real world, absolute security is impossible without completely isolating a system.</p>
+            <h3>Standard Trade-offs</h3>
+            <ul>
+                <li><strong>Security vs. Usability:</strong> The more secure a system is (e.g., forcing complex 15-character passwords changing every 30 days), the harder it is for employees to use.</li>
+                <li><strong>Security vs. Performance:</strong> Adding heavy encryption (Confidentiality) slows down data transmission and processing.</li>
+                <li><strong>Cost vs. Benefit:</strong> You cannot spend $100,000 to protect an asset worth $10,000. Risk assessment must justify the implementation.</li>
+            </ul>
+        </div>
+
+        <!-- 1.3 Control Mechanisms -->
+        <div id="page3" class="page-section">
+            <h1>1.3 Control Mechanisms for Information Security</h1>
+            <p>Controls are the policies, procedures, and technologies used to mitigate risks.</p>
+            <h3>Types of Controls</h3>
+            <ul>
+                <li><strong>Technical (Logical):</strong> Software/hardware rules (e.g., Firewalls, Encryption, Antivirus).</li>
+                <li><strong>Administrative (Managerial):</strong> Policies, guidelines, and training (e.g., Employee onboarding, password policies).</li>
+                <li><strong>Physical:</strong> Real-world security (e.g., Security guards, locks, CCTV, badge readers).</li>
+            </ul>
+            <h3>Control Functions</h3>
+            <p>Preventive (stops the attack), Detective (identifies the attack), Corrective (fixes the damage).</p>
+        </div>
+
+        <!-- 1.4 Access Control -->
+        <div id="page4" class="page-section">
+            <h1>1.4 Access Control - Administrative and Technical</h1>
+            <p>Access control ensures that a <strong>Subject</strong> (User/Program) can only interact with an <strong>Object</strong> (File/Database) based on their assigned permissions.</p>
+            
+            <h3>Administrative Access Control</h3>
+            <p>These are the human-driven rules. Examples include: Principle of Least Privilege (giving users only the bare minimum access they need), Separation of Duties (requiring two people to complete a sensitive task), and Mandatory Vacations (to detect fraud).</p>
+
+            <h3>Technical Access Control</h3>
+            <p>How the system enforces the rules. Examples include: Access Control Lists (ACLs), Role-Based Access Control (RBAC - access based on job title), and MAC/DAC models.</p>
+        </div>
+
+        <!-- 1.5 Passwords Are they secure -->
+        <div id="page5" class="page-section">
+            <h1>1.5 Passwords - Are They Secure?</h1>
+            <p>Historically, passwords have been the primary method of authentication, but their security is highly questionable today.</p>
+            <h3>The Human Flaw</h3>
+            <p>Passwords rely on human memory. As a result, users often:</p>
+            <ul>
+                <li>Use easily guessable passwords (e.g., "password123", pet names).</li>
+                <li>Reuse the exact same password across multiple sites (Credential Stuffing risk).</li>
+                <li>Write them down on sticky notes under keyboards.</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Passwords alone are no longer considered a fully secure security boundary. They must be augmented with length, complexity, and additional factors.</p>
+        </div>
+
+        <!-- 1.6 Hash Functions -->
+        <div id="page6" class="page-section">
+            <h1>1.6 Passwords, Hash Function, Common Threats</h1>
+            <p>Systems should NEVER store passwords in plain text.</p>
+            <h3>Hash Functions</h3>
+            <p>A hash function is a one-way mathematical algorithm that converts a password into a fixed-length string of characters (e.g., SHA-256). When you log in, the system hashes your input and compares it to the stored hash.<br>
+            <em>Note: To prevent pre-computed hash attacks, we add <strong>Salt</strong> (random data) before hashing.</em></p>
+
+            <h3>Common Password Threats</h3>
+            <ul>
+                <li><strong>Brute-Force Attack:</strong> Trying every single possible character combination until the password is guessed.</li>
+                <li><strong>Dictionary Attack:</strong> Trying thousands of common words and phrases from a predetermined list.</li>
+                <li><strong>Rainbow Table Attack:</strong> Using large databases of pre-computed hashes to reverse-engineer a stolen hash.</li>
+            </ul>
+        </div>
+
+        <!-- 1.7 MFA -->
+        <div id="page7" class="page-section">
+            <h1>1.7 Multifactor Authentication – Challenges</h1>
+            <p>Multifactor Authentication (MFA) requires two or more different forms of authentication. The factors are:</p>
+            <ol>
+                <li><strong>Something you know:</strong> Password, PIN, Security Question.</li>
+                <li><strong>Something you have:</strong> Smartphone (SMS/App), Smartcard, Hardware Token (YubiKey).</li>
+                <li><strong>Something you are:</strong> Biometrics (Fingerprint, Iris scan, Voice).</li>
+            </ol>
+
+            <h3>Challenges of Implementation</h3>
+            <ul>
+                <li><strong>High Cost & Maintenance:</strong> Hardware tokens cost money; SMS gateways charge per text.</li>
+                <li><strong>User Resistance:</strong> Users find the extra steps annoying, leading to friction.</li>
+                <li><strong>Vulnerabilities:</strong> SMS codes can be intercepted via SIM Swap attacks; biometric data cannot be changed if compromised.</li>
+            </ul>
+        </div>
+
+        <!-- 1.8 Spheres -->
+        <div id="page8" class="page-section">
+            <h1>1.8 Spheres of Information Security</h1>
+            <p>Security is not just an IT problem; it is a multi-layered organizational issue. The spheres visualize how security protects Information at the core.</p>
+            
+            <div style="background: #eaf2f8; padding: 20px; border-radius: 100px; text-align: center; width: 60%; margin: 0 auto;">
+                <strong>Management / Policy (Outer Sphere)</strong><br>
+                <div style="background: #a9cce3; padding: 20px; border-radius: 100px; margin-top: 10px;">
+                    <strong>Networks & Systems (Middle Sphere)</strong><br>
+                    <div style="background: #5499c7; color:white; padding: 20px; border-radius: 100px; margin-top: 10px;">
+                        <strong>Information / Data (Core)</strong>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Defense in Depth:</strong> By layering these spheres (Policy, People, and Technology), an attacker who breaches the network layer still has to bypass system controls and data encryption to reach the core information.</p>
+        </div>
+script>
+        // Page Navigation Logic
+        function showPage(pageId, element) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            // Remove active class from buttons
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            
+            // Show selected page & activate button
+            document.getElementById(pageId).classList.add('active');
+            element.classList.add('active');
+            
+            // Scroll to top of content
+            document.getElementById('main-content').scrollTop = 0;
+            // On mobile, scroll to main content area
+            if (window.innerWidth <= 768) {
+                document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Scroll to top of content
+            document.getElementById('main-content').scrollTop = 0;
+        }
+
+        // Quiz Logic
+        function checkQ1(answer) {
+            const fb = document.getElementById('fb-q1');
+            if (answer === 'A') {
+                fb.style.color = 'var(--success)';
+                fb.textContent = "Correct! A DoS attack disrupts the 'Availability' of the system.";
+            } else {
+                fb.style.color = 'var(--accent)';
+                fb.textContent = "Incorrect. A DoS attack stops users from accessing the system. Try again!";
+            }
+        }
+    </script>
+</body>
+</html>
