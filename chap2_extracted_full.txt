@@ -1,0 +1,2398 @@
+--- 2.1 Security Goals, Security trends - Attacks, Services and Mechanisms.pdf ---
+Unit-2 
+INTRODUCTION AND MATHEMATICAL 
+FOUNDATIONS FOR INFORMATION 
+SECURITY 
+2.1 Security Goals, Security trends - Attacks, Services and Mechanisms 
+Outline
+Introduction to Cryptography and Network 
+Security
+Security Goals
+Cryptographic attacks
+Cryptology
+Security Services
+Security Mechanism
+Introduction to CRNS
+ Cryptography:
+It is a word with Greek origin whose meaning is “hidden/secret
+writing”.
+The Oxford Dictionary (2006) defines cryptography as the art of
+writing or solving codes.
+The art and science of keeping message secure from others.
+To enable two people to communicate over insecure channel in
+such a way that opponent cannot understand what is being said.
+Mechanism of achieving security by encoding/ converting the
+original message into some another form in such a way that
+message becomes unintelligible.
+Hard to 
+understand 
+Continue…
+Allows us to scramble/descramble the text in such a 
+way that they would appear meaningless.
+To understand the Cryptography:
+Number Theory
+Probability
+“Your Account Details
+Id:xyz
+Password: hellowrd”
+Alice BoB
+Communication without using Cryptography
+“Your Account Details
+Id:xyz
+Password: hellowrd”
+Alice BoB
+Opponent
+Communication without using Cryptography
+Alice BoB
+Opponent
+Communication with the use of Cryptography
+Encoding Decoding
+“hasdj.sadkdoepsm
+dlaflasd ;dfkasd kd”
+Application of Cryptography
+ Secure communications
+ End-to-End Encryption
+ Storing Data
+ Storing Passwords
+ Authentication/Digital Signatures
+ Time Stamping
+ Disk Encryption
+ Electronic Money
+Security Objectives/ Goals
+ Confidentiality – Information need to be hidden from 
+unauthorized access.
+Sender and intended recipient should be able to 
+access the content of the message.
+confidentiality means something that is secret and is 
+not supposed to be disclosed to unintended people 
+or entities.
+Continue…
+ Example (Confidentiality) :
+In military, concealment of sensitive information is major 
+concern.
+In Industry hiding some data/ Information from 
+competitors such as tender details/new product details 
+is critical.
+If Alice is sending a message to Bob, it should be 
+impossible or computationally infeasible for Eve to learn 
+the contents of an encrypted message without 
+knowledge of the secret key.
+Continue…
+ Integrity – Protected from unauthorized change.
+When the content of the message are changed after 
+the sender sends it and before the it reaches to the 
+intended recipient.
+Example (Integrity) :
+For example, assume that Alice encrypts a message to 
+Bob by encoding each letter as its position in the 
+alphabet (A=1, B=2, etc.). If Eve can intercept the 
+message, she can modify the message without Bob 
+knowing.
+Continue…
+Availability – Available to authorized user when it is needed.
+ Example (Availability):
+You have uploaded your all-important documents on 
+DigiLocker and at some moment the application is not 
+accessible at the time of need due to heavy load on server.
+Security attack:
+Any action that compromises the 
+security of information owned by an 
+organization.
+Cryptographic Attack
+Cryptographic 
+Attack
+Cryptanalytic 
+ Non- 
+Cryptanalytic
+Cryptanalysis
+  The science of cracking codes and decoding secrets.
+ Combination of statistical and algebraic technique to 
+recover a message or secret key from the decoded 
+message without knowing actual message, method of 
+encoding or key.
+ It is a technique of decoding messages from a 
+unintelligible format without knowing how they were 
+initially converted from intelligible (understandable) 
+format to unintelligible format.
+ Brute force attack- Attacker tries every possible keys to 
+recover the message.
+Non-
+Cryptanalytic
+Snooping 
+Traffic Analysis 
+Modification 
+Masquerading 
+Replaying 
+Repudiation
+Denial of 
+Service 
+Threatening to 
+Confidentiality
+Threatening to Integrity
+Threatening to Availability
+Non-Cryptanalytic Attacks categories
+Passive
+ Active
+Snooping 
+Traffic Analysis 
+Modification 
+Masquerading 
+Replaying 
+Repudiation
+Denial of Service 
+Passive Attack
+ A passive attack attempts to learn or make use of information 
+from the system but does not affect system resources. 
+ Passive attacks are in the nature of eavesdropping on, or 
+monitoring of, transmissions. 
+ The goal of the opponent is to obtain information that is being 
+transmitted.
+ Passive attacks are very difficult to detect, because they do not 
+involve any alteration of the data. 
+ Typically, the message traffic is sent and received in an 
+apparently normal fashion, and neither the sender nor receiver is 
+aware that a third party has read the messages or observed the 
+traffic pattern.
+Active Attack
+ An active attack attempts to alter system resources or 
+affect their operation.
+ Whereas passive attacks are difficult to detect, 
+measures are available to prevent their success. 
+ On the other hand, it is quite difficult to prevent active 
+attacks absolutely because of the wide variety of 
+potential physical, software, and network vulnerabilities. 
+ Instead, the goal is to detect active attacks and to 
+recover from any disruption or delays caused by them. If 
+the detection has a deterrent effect, it may also 
+contribute to prevention.
+Snooping
+ Unauthorized access to or interception of data.
+ Example: a file transferred through the Internet may 
+contain confidential information.
+ An unauthorized entity may intercept the transmission 
+and use the contents for his own benefits. 
+ To prevent the snooping, the data must be made non 
+intelligible to the the interceptor by using  some 
+techniques.
+Traffic Analysis
+ Although a data is non-intelligible for the interceptor, 
+but he can still extract some other type of information by 
+monitoring the online traffic.
+ Example:
+ Opponent can get email ids of sender and receiver. 
+ By analyzing requests and responses, nature of the 
+transaction can be identified.
+Alice BoB
+Unauthorized 
+Entity
+Continue…
+
+Passive Attacks
+Traffic Analysis, Release of Message Content
+
+Modification
+ After incepting or accessing the information, the 
+attacker modifies the information to make it beneficial 
+to himself and send it to the receiver.
+ Example:
+ A customer sends a message to as bank to do some 
+transaction. The attacker intercepts the message and 
+modifies the details of transaction to get some benefits.
+ Sometime attackers simply deletes or delay the 
+message to harm the system or reputation of the sender. 
+Continue…
+Alice BoB
+Unauthorized 
+Entity
+
+Active attack- 
+Modification of Message Content
+
+Masquerading
+ Also called spoofing.
+ The attacker impersonates somebody else.
+ Example:
+ Attacker may get bank card and PIN of the bank 
+customer and pretend that she is that customer.
+ A user tries to contact bank and another site pretends 
+that it is a bank and obtains some information about the 
+user.
+Continue…
+Alice BoB
+Unauthorized 
+Entity
+Message 
+from Alice
+Active Attack- 
+Masquerading
+
+Replaying
+ Obtains the copy of the message sent by the authorized 
+user and later tries to replay it to create unauthorized 
+effect.
+ Example: 
+ A person sends a request to her bank to ask for a 
+payment to the attacker, who has done the job for her. 
+ The attacker intercepts the message and send it again 
+to receive another payment from the bank.
+Alice BoB
+Unauthorized 
+Entity
+Continue…
+
+Active attack-
+Replay
+
+Repudiation
+ It is performed by one of the two parties in the 
+communication.
+ The sender of the message might later deny that she 
+sent the message.
+ The receiver of the message might later deny that he 
+received the message.
+Denial of Service(Dos)
+Server
+Service 
+Unavailable
+Alice
+Active Attack
+Denial of Services
+
+Cryptology
+Cryptogrpahy
++
+CryptAnalysis
+ Security attack: Any action that compromises the 
+security of information owned by an organization.
+ Security service: A processing or communication 
+service that enhances the security of the data 
+processing systems and the information transfers of an 
+organization. 
+ The services are intended to counter security attacks, 
+and they make use of one or more security mechanisms 
+to provide the service.
+Security Attack & Security Services
+Security Services
+Data 
+Confidentiality
+Data 
+Integrity
+Authentication
+Nonrepudiation
+Access 
+Control
+Enhances the security of the data processing systems and the 
+information transfers of an organization. 
+Data Confidentiality
+ Protection against passive attacks.
+ Confidentiality ensures that sensitive information is 
+accessed only by an authorized person and kept away 
+from those not authorized to possess them.
+ Connection Confidentiality: The protection of all user data 
+on a connection. 
+ Connectionless Confidentiality: The protection of all user 
+data in a single data block.
+ Selective-Field Confidentiality: The confidentiality of 
+selected fields within the user Data on a connection or in 
+a single data block. 
+ Traffic Flow Confidentiality: The protection of the 
+information that might be Derived from observation of 
+traffic flows. 
+Examples of confidential information:
+ Bank account statements
+ Personal information
+ Credit card numbers
+ Trade secrets
+ Government documents
+Examples of attacks that affect 
+confidentiality:
+ Packet sniffing
+ Password cracking
+ Dumpster diving
+ Wiretapping
+ Keylogging
+ Phishing
+Ways to provide confidentiality:
+ Usernames and passwords
+ Two-factor authentication
+ Biometric verification
+ Security tokens or key fobs
+ Data encryption
+Authentication
+ assures recipient that the message is from the source that 
+it claims to be from.
+ For Connection Oriented communication,  authentication of 
+sender and receiver is provided at the time of connection 
+establishment which is known as peer entity authentication.
+ Used in association with a logical connection to provide 
+confidence in the identity of the entities connected. 
+ It attempts to provide confidence that an entity is not 
+performing either a masquerade or an unauthorized replay 
+of a previous connection.
+Example: Entity authentication
+ If you log on to a computer system there must (or at 
+least should) be some way that you can convince it of 
+your identity. 
+ Once it knows your identity, it can verify whether you are 
+entitled to enter the system. 
+ The same principle applies when one person tries to 
+communicate with another person: as a first step you 
+want to verify that you are communicating with the right 
+person. 
+ Therefore there must be some way in which you can 
+prove your identity. 
+Continue…
+ For Connectionless Communication , authentication of 
+the source of the data is provided which is known as 
+data origin authentication.
+ It does not provide protection against the duplication or 
+modification of data units. 
+ This type of service supports applications like electronic 
+mail, where there are no prior interactions between the 
+communicating entities.
+ Data authentication consists of two components: the 
+fact that data has not been modified (data integrity) 
+and the fact that you know who the sender is (data 
+origin authentication). 
+Ways to provide Authentication
+ a particular entity: a password, a (pre-designed) user-id, a pin 
+code, etc.            OR    
+ Another way is to use specific items to prove your identity: a 
+magnetic strip card, a smartcard (a hand-held computer the size 
+of a credit card), a token.              OR 
+ The two parties share a common secret code word. A party is 
+required to show the secret code word to the other for 
+authentication.)
+ It is also possible to make use of biometric properties. OR by 
+sending digital signature.
+ A trusted third party verifies the authenticity. One such way is to 
+use digital certificates issued by a recognized certification 
+authority.
+Access Control
+ controls who can have access to a resource, under what 
+conditions access can occur, and what those accessing 
+the resource are 
+ While authentication can verify the identity of an entity, 
+the authorization determines what the entity is allowed 
+to do. 
+ Authorization is thus the act of granting rights and/or 
+privileges to users, permitting them access to an object.
+ Access control is a means of enforcing this authorization 
+model. Usually a successful authentication is a must 
+before the authorization of an action can be decided. 
+allowed to do.
+Data Integrity
+ assurance that data received is as sent by an authorized 
+entity.
+ Connection Integrity with Recovery: Provides for the integrity 
+of all user data on a connection and detects any 
+modification, insertion, deletion, or replay of any data within 
+an entire data sequence, with recovery attempted. 
+ Connection Integrity without Recovery: As above, but 
+provides only detection without recovery. 
+ Selective-Field Connection Integrity: Provides for the integrity 
+of selected fields within the user data of a data block 
+transferred over a connection and takes the form of 
+determination of whether the selected fields have been 
+modified, inserted, deleted, or replayed. 
+Continue…
+ Connectionless Integrity: Provides for the integrity of a 
+single connectionless data block and may take the form 
+of detection of data modification. Additionally, a limited 
+form of replay detection may be provided. 
+ Selective-Field Connectionless Integrity: Provides for the 
+integrity of selected fields within a single connectionless 
+data block; takes the form of determination of whether 
+the selected fields have been modified. 
+Nonrepudiation
+ Provides protection against denial by one of the entities 
+involved in a communication of having participated in 
+all or part of the communication.
+ Nonrepudiation, Origin: Proof that the message was sent 
+by the specified party. 
+ Nonrepudiation, Destination: Proof that the message was 
+received by the specified party. 
+Security 
+Mechanism
+Digital 
+Signature
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Digital Signature
+Data appended to or a cryptographic 
+transformation of a data unit that allows a 
+recipient of the data unit to prove the source 
+and integrity of the data unit and protect 
+against forgery. 
+Security 
+Mechanism
+Encipherment Digital 
+Signature
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Encipherment
+ hiding or covering of data which provides 
+confidentiality.
+ Cryptography and Steganography are used for 
+enciphering.
+Security 
+Mechanism
+Encipherment Digital 
+Signature
+Traffic 
+Padding
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Traffic Padding
+inserting some bogus data into the data traffic 
+to thwart the adversary’s attempt to use the 
+traffic analysis
+The insertion of bits into gaps in a data stream to 
+frustrate traffic analysis attempts.
+Security 
+Mechanism
+Encipherment Digital 
+Signature
+Traffic 
+Padding
+Access 
+Control
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Access Control
+A variety of mechanisms that enforce access 
+rights to resources. 
+Access control used methods to prove that a 
+user has access right to the data or resources 
+owned by a system. 
+Examples of proofs are passwords and PINs.
+Security 
+Mechanism
+Encipherment Digital 
+Signature
+Traffic 
+Padding
+Routing 
+Control
+Access 
+Control
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Routing Control
+Routing control means selecting and 
+continuously changing different available routes 
+between sender and receiver to prevent the 
+opponent from eavesdropping on a particular 
+route.
+Enables selection of particular physically secure 
+routes for certain data and allows routing 
+changes, especially when a breach of security is 
+suspected. 
+Security 
+Mechanism
+Encipherment
+Data Integrity
+Digital 
+Signature
+Traffic 
+Padding
+Routing 
+Control
+Access 
+Control
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Data Integrity
+A variety of mechanisms used to assure the 
+integrity of a data unit or stream of data units. 
+The data integrity mechanism appends to the 
+data a short check value that has been created 
+by a specific process from the data itself. 
+Data integrity is preserved by comparing check 
+value received to the check value generated.
+Security 
+Mechanism
+Encipherment
+Data Integrity
+Digital 
+Signature
+Authentication 
+Exchange
+Traffic 
+Padding
+Routing 
+Control
+Access 
+Control
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Authentication Exchange
+In this two entities exchange some messages to 
+prove their identity to each other.
+Security 
+Mechanism
+Encipherment
+Data Integrity
+Digital 
+Signature
+Authentication 
+Exchange
+Traffic 
+Padding
+Routing 
+Control Notarization
+Access 
+Control
+A process (or a device incorporating such a process) that is 
+designed to detect, prevent, or recover from a security attack.
+Notarization
+The use of a trusted third party to assure certain 
+properties of a data exchange. 
+A third trusted party to control the 
+communication between two entities. 
+The receiver can involve a trusted third party to 
+store the sender request in order to prevent the 
+sender from later denying that she has made a 
+request.
+Relation between Services and 
+Mechanisms
+Security services and mechanisms are closely 
+related as mechanisms and  combination of 
+mechanisms are used to provide a service.
+Data 
+Confidentiality
+Encipherment Routing Control
+Data Integrity
+Encipherment Data Integrity
+Digital Signature
+Authentication
+Encipherment Authentication 
+Exchange
+Digital Signature
+Nonrepudiation
+Data Integrity Notarization
+Digital Signature
+Exercise
+Draw a matrix that shows the relationship 
+between security services and attacks.
+Solution
+Draw a matrix that shows the relationship 
+between security mechanisms and attacks.
+Solution
+ Which security mechanism(s) are provided in each 
+of the following cases?
+1. A School demands student identification and a 
+password to let students log into the school server. 
+2. A school server disconnects a student if she logged 
+into the system for more than two hours. 
+3. A professor refuses to send students grades by 
+email unless they provide student identification, 
+they were pre assigned by the professor.
+4. A bank requires the customer’s signature for a 
+withdrawal.
+Any Questions??
+Thank You
+
+
+--- 2.2.pdf ---
+Symmetric Key 
+Encipherment 
+Outline
+ Cryptosystem
+ Cryptanalysis Attack
+ Modular Arithmetic
+ Additive Cipher
+ Ceaser Cipher
+ Multiplicative Cipher
+ Affine Cipher
+ Monoalphabetic Substitution Cipher
+ Playfair
+ Vigenere
+ Autokey
+ Hill Cipher
+ Transposition Ciphers
+ Block cipher vs Stream Ciphers
+Basic Cryptosystem
+Encryption 
+Algorithm
+Decryption 
+Algorithm
+Plain Text Cipher Text Plain Text
+Secret Key
+Alice BoB
+Secret Key
+Continue…
+ Plain Text – Original Message
+ Cipher Text - the scrambled message produced as output  
+ Encryption Algorithm - performs various substitutions and 
+transformations on the plaintext
+ Decryption Algorithm - the encryption algorithm run in reverse
+ Secret Key - input to the encryption algorithm
+ The key is a value independent of the plaintext and of the 
+algorithm. The algorithm will produce a different output 
+depending on the specific key being used at the time.
+Types of Cryptographic
+ Cryptographic systems are characterized along three 
+independent dimensions:
+1. The type of operations used for transforming plaintext to 
+ciphertext. 
+ All encryption algorithms are based on two general 
+principles: substitution, in which each element in the 
+plaintext (bit, letter, group of bits or letters) is mapped into 
+another element, and transposition, in which elements in 
+the plaintext are rearranged. 
+ The fundamental requirement is that no information be lost 
+(that is, that all operations are reversible). 
+Continue…
+2. The number of keys used. If both sender and receiver use 
+the same key, the system is referred to as symmetric, 
+single-key, secret-key, or conventional encryption.  If the 
+sender and receiver use different keys, the system is 
+referred to as asymmetric, two-key,or public-key 
+encryption. 
+3. The way in which the plaintext is processed. 
+A block cipher processes the input one block of elements at 
+a time, producing an output block for each input block. A 
+stream cipher processes the input elements continuously, 
+producing output one element at a time, as it goes along.
+Model of Symmetric Cryptosystem
+Process of Cryptosystem
+ In its most basic form, two people, often denoted as Alice 
+and Bob, have agreed on a particular secret key. 
+ At some later time, Alice may wish to send a secret message 
+to Bob (or Bob might want to send a message to Alice). 
+ The key is used to transform the original message (which is 
+usually termed the plaintext) into a scrambled form that is 
+unintelligible to anyone who does not possess the key. 
+ This process is called encryption and the scrambled message 
+is called the ciphertext. 
+ When Bob receives the ciphertext, he can use the key to 
+transform the ciphertext back into the original plaintext; this is 
+the decryption process.
+Continue..
+ A cryptosystem constitutes a complete speciﬁcation of 
+the keys and how they are used to encrypt and decrypt 
+information. 
+ The techniques used by the adversary to attempt to 
+“break” the cryptosystem are termed cryptanalysis. 
+ The most obvious type of cryptanalysis is to try to guess 
+the key. 
+ An attack wherein the adversary tries to decrypt the 
+ciphertext with every possible key in turn is termed an 
+exhaustive key search.
+Continue…
+ When the adversary tries the correct key, the plaintext 
+will be found, but when any other key is used, the 
+“decrypted” ciphertext will likely be random Messages. 
+ So an obvious ﬁrst step in designing a secure 
+cryptosystem is to specify a very large number of 
+possible keys, so many that the adversary will not be 
+able to test them all in any reasonable amount of time. 
+If , Plaintext = P   Ciphertext = C   Key = K
+Continue …..
+Encryption : C = Ek (P)
+Decryption : P = DK (C)
+Secret Key Cryptography/ Symmetric 
+Key Cryptosystem
+ The model of cryptography described above is usually 
+called secret-key cryptography. This indicates that there 
+is one secret key, which is known to both Alice and Bob.
+ That is, the key is a “secret” that Is known to two parties.
+ This key is employed both to encrypt plaintexts and to 
+decrypt ciphertexts. 
+ The actual encryption and decryption functions are thus 
+inverses of each other. 
+Drawbacks of Secret Key Cryptosystem
+ Alice and Bob must somehow be able to agree on the 
+secret key ahead of time (before they want to send any 
+messages to each other). 
+ This might be straightforward if Alice and Bob are in the 
+same place when they choose their secret key. 
+ But what if Alice and Bob are far 
+apart, say on different 
+continents???
+Public key Cryptography/ Asymmetric 
+Cryptography
+ Two keys instead of one.
+ One is Public key and one is private key.
+ One key would be used to encrypt the message.
+ Another key would be used to decrypt the message.
+Public Key Cryptosystem
+Public Key- Alice
+Alice BoB
+Public Key- Bob
+Private Key- Alice Private Key- Bob
+Public Key- Alice
+Alice BoB
+Public Key- Bob
+Private Key- Alice Private Key- BobPublic Key- zeus
+….
+….
+Encryption 
+Algorithm
+Decryption 
+Algorithm
+Plain Text
+Cipher Text
+Plain Text
+Public Key Cryptosystem
+Cryptosystem
+
+Continue…
+ A practical cryptosystem should satisfy 
+Each encryption function ek and each decryption function 
+dk should be efficiently computable.
+An opponent, upon seeing the ciphertext string y, should 
+be unable to determine the key k that was used, or the 
+plaintext string x.
+Kerckhoff’s Principle
+ For more security – encryption/decryption algorithm + key 
+should be hidden
+ Based on kerckhoff’s principle, one should always assume that 
+the adversary knows encryption/decryption algorithm
+ Resistance of cipher to attack must be based only on secrecy 
+of the key
+ Key domain for each algorithm should be so large that it makes 
+it difficult for the adversary to find the key 
+Cryptanalysis Attack
+ Cipher-text Only attack
+ Known Plaintext
+ Chosen Ciphertext
+ Chosen- plaintext
+Cryptanalysis Attacks
+ As cryptography is science and art of creating secret codes, 
+cryptanalysis is the science and art of breaking those codes
+Cryptanalysis
+Attacks
+Ciphertext
+Only
+Known
+Plaintext
+Chosen 
+Plaintext
+Chosen
+Ciphertext
+
+CipherText – only attack
+-------
+-------
+-------
+-------
+Alice
+Ciphertext
+Bob
+-------
+-------
+-------
+-------
+Ciphertext
+Ciphertext
+ANALYZE
+Plaintext
+Eve
+Brute-Force Attack : Exhaustive – key search 
+method
+ We assume that Eve knows the algorithm and knows the key 
+domain
+ Using intercepted cipher, Eve decrypts the ciphertext with every 
+possible key until the plaintext makes sense 
+ To prevent this type of attack, the number of keys must be very 
+large 
+Statistical Attack : 
+ Cryptanalyst can benefit from some inherent 
+characteristics of the plaintext language to launch a 
+statistical attack
+ Cryptanalyst find most frequently used character in 
+ciphertext
+ Based on that assume the key and use it to decrypt the 
+message
+ To prevent this attack, cipher should hide the 
+characteristics of the language 
+Pattern Attack : 
+ Some ciphers may hide characteristics of the language 
+but may create some pattern in the ciphertext
+ It is important to use ciphers that make the ciphertext 
+look as random as possible 
+Known - plaintext attack
+-------
+-------
+-------
+-------
+Alice
+Ciphertext
+Bob
+-------
+-------
+-------
+-------
+Ciphertext
+Ciphertext
+ANALYZE
+Plaintext
+Eve
+ Access to some plaintext/ciphertext pair
+ Assume that key is same as previous one
+----
+----
+----
+----
+----
+----
+Previous Pair
+chosen - plaintext attack
+-------
+-------
+-------
+-------
+Alice
+Ciphertext
+Bob
+-------
+-------
+-------
+-------
+Ciphertext
+Ciphertext
+ANALYZE
+Plaintext
+Eve
+ Similar to known – plaintext attack
+ Choose plaintext – ciphertext pair from PC
+ Key is not known----
+----
+----
+----
+----
+----
+Previous Pair
+Eve
+
+chosen - ciphertext attack
+-------
+-------
+-------
+-------
+Alice
+Ciphertext
+Bob
+-------
+-------
+-------
+-------
+Ciphertext
+Ciphertext
+ANALYZE
+Plaintext
+Eve
+ Similar to chosen – plaintext attack
+ Choose plaintext – ciphertext pair from PC
+ Key is not known ----
+----
+----
+----
+----
+----
+Previous PairEve
+
+MODULAR ARITHMETIC
+ The division relationship (a = q × n + r) has two inputs (a 
+and n) and two outputs (q and r). 
+ In modular arithmetic, we are interested in only one of 
+the outputs, the remainder r. 
+ The modulo operator is shown as mod. 
+ The second input (n) is called the modulus. 
+ The output r is called the residue. 
+Division algorithm and modulo 
+operator
+
+Examples:
+ Find the result of the following operations:
+a.  27 mod 5                                            b.  36 mod 12
+c.  −18 mod 14                                        d.  −7 mod 10
+Solution
+a.
+ Dividing
+ 
+27
+ 
+by
+ 
+5
+ 
+results
+ 
+in
+ 
+r
+ 
+=
+ 
+2
+b.
+ Dividing
+ 
+36
+ 
+by
+ 
+12
+ 
+results
+ 
+in
+ 
+r
+ 
+=
+ 
+0
+.
+ 
+c.
+ Dividing
+ 
+ −
+18
+ 
+ by
+ 
+ 14
+ 
+ results
+ 
+ in
+ 
+ r
+ 
+ =
+ 
+ −
+4
+.
+ 
+ After
+ 
+ adding
+ 
+ the
+ 
+modulus
+ 
+r
+ 
+=
+ 
+10
+d.
+ Dividing
+ 
+ −
+7
+ 
+ by
+ 
+ 10
+ 
+ results
+ 
+ in
+ 
+ r
+ 
+ =
+ 
+ −
+7
+.
+ 
+ After
+ 
+ adding
+ 
+ the
+ 
+modulus
+ 
+to
+ 
+−
+7
+,
+ 
+r
+ 
+=
+ 
+3
+.
+ 
+Zn- The set of least residues modulo n
+ The modulo operation creates a set, which in modular 
+arithmetic is referred to as the set of least residues 
+modulo n, or Zn. 
+Some Zn sets
+
+Monoalphabetic Ciphers
+ A character in plaintext is always changed to the same 
+character(or symbol) in cipher text regardless of its 
+position in the text.
+ Relationship between a symbol in plaintext to a symbol 
+in ciphertext is always one-to-one.
+Shift Cipher
+Additive Cipher
+Ceaser Cipher
+Shift Cipher
+ Simplest monoalphabetic cipher.
+ To perform mathematical operations on plain text and 
+ciphertext, we need to assign numerical values to each 
+letter.
+Plaintext and ciphertext in Z26
+Shift Cipher
+
+Continue…
+
+Continue…
+Also known as additive cipher on the basis of 
+their mathematical nature.
+Also known as  ceasar cipher as Julius 
+Ceasar used an additive cipher for 
+communication with key=3.
+Shift Cipher means “Shift key characters 
+down/up”
+In Additive Cipher, plaintext, ciphertext and 
+key are integers in Z26.
+Example:
+Encryption
+1. Plaintext =“hello” key=15
+2. Plaintext=“this is an exercise” key=20
+Example
+Decryption
+1. Ciphertext=“wtaad” key=15
+2. Ciphertext=“UVACLYFZLJBYL” . Find the key.
+Cryptanalysis- Bruteforce attack
+
+Statistical Analysis
+Frequency of characters in English
+Continue…
+Frequency of diagrams and trigrams
+
+statistical attack
+ Example: Cipher text is like below:
+
+Solution
+When Eve tabulates the frequency of letters in 
+this ciphertext, 
+gets: I =14, V =13, S =12, and so on. 
+The most common character is I with 14 
+occurrences. 
+That means, E might be replace by I.
+So E=(I-key) mod 26.
+So key can be 4.
+Continue…
+If we take key=4,
+Plain text will be
+
+Monoalphabetic 
+Substitution Cipher
+Monoalphabetic Substitution Cipher
+ Because additive cipher have small key domains, they 
+are very vulnerable to brute-force attack. 
+ A better solution is to create a mapping between each 
+plaintext character and the corresponding ciphertext 
+character. 
+ Alice and Bob can agree on a table showing the 
+mapping for each character. 
+
+Example:
+ Plain Text : welcome to charusat
+ CipherText: PRDAYQRIYACNHJVNI
+
+Continue…
+
+Cryptanalysis
+No of Possible keys:  26!
+So it is computationally infeasible for computer 
+to find out the correct key in finite time.
+Statistical attack or Frequency Analysis attack
+Multiplicative 
+cipher
+Multiplicative cipher
+P= (C x k-1 ) mod 26
+Continue…
+In a multiplicative cipher, the plaintext and 
+ciphertext are integers in Z26.
+the key is an integer in Z26*.
+Z26* : subset of Zn which includes integers in Zn 
+that have unique multiplicative inverse.
+If GCD of (a,n) =1 then multiplicative inverse of a 
+in Zn exists.
+Example
+ Use Multiplicative cipher to encrypt the message “hello” with a key =7.
+ Answer:
+Plaintext= hello
+P1=h                            c1= (P1 * K) mod 26                        c1=(7*7)mod 26= 23 ->x
+P2=e                            c2= (P2 * K) mod 26                        c2=(4*7)mod 26= 2   ->c
+P3=l                             c3= (P3 * K) mod 26          c3=(11*7)mod 26=25 ->z
+P4=l                             c4= (P4 * K) mod 26                       c4=(11*7)mod 26=25 ->z
+P5=0                            c5= (P5 * K) mod 26    c5=(14*7)mod 26=20->u
+Multiplicative Inverse
+In Zn two numbers a and b are the multiplicative 
+inverse of each other if 
+a X b ≡ 1 (mod n)
+(a* b is congruence to 1 mod n)
+Meaning: (a *b) mod n= 1 mod n.
+For more detail
+Continue…
+ If a * b mod n =1  , a and b are multiplicative inverse of 
+each other in Zn.
+ Example:
+ Z10 = {0,1,2,3,4,5,6,7,8,9} find multiplicative inverse of 3.
+ 3 * m mod 10=1
+ m will be 7     as (7*3) mod 10 will be 1. 
+Find Multiplicative inverse
+23 in Z100
+12 in Z26
+15 in Z26
+7 in Z26
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+100 23 0 1
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 0 1
+Q= R1 / R2
+Q= 100/ 23 = 4  
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1
+R = R1 % R2
+R= 100% 23 = 8 
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+T =T1- Q * T2
+T = 0 – 4 * 1= -4
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+23 8 1 -4
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 1 -4
+Q= R1 / R2
+Q= 23/8  = 2  
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4
+R= R1 % R2
+R= 23 % 8  = 7  
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+T = T1- Q * T2
+T = 1 – (2 * -4 )= 9
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+8 7 -4 9
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+1 8 7 1 -4 9 -13
+Q= R1 / R2
+Q= 8/7  = 1 
+R= R1 % R2
+R= 8 % 7  = 1 
+T = T1- Q * T2
+T = -4 – (1 * 9 )= -13
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+1 8 7 1 -4 9 -13
+7 1 9 -13
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+1 8 7 1 -4 9 -13
+7 7 1 0 9 -13 100
+Q= R1 / R2
+Q= 8/7  = 1 
+R= R1 % R2
+R= 8 % 7  = 1 
+T = T1- Q * T2
+T = 9 – (7 * -13 )= 100
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+1 8 7 1 -4 9 -13
+7 7 1 0 9 -13 100
+1 0 -13 100
+Solution
+Multiplicative inverse of 23 in Z100
+Q R1 R2 R T1 T2 t
+4 100 23 8 0 1 -4
+2 23 8 7 1 -4 9
+1 8 7 1 -4 9 -13
+7 7 1 0 9 -13 100
+1 0 -13 100
+As r1=1 stop propagating further take t1 from the table.
+So -13 mod 100=87 will be the multiplicative inverse of 23 in Z100
+Continue…
+Multiplicative Inverse of 23 in Z100 is 87.
+Example
+Find the key domain of Z26*?
+Find the Ciphertext for message =“This is 
+exercise” with key=15.
+Find the plain text for ciphertext=XCZZU for 
+key=7.
+Affine cipher
+Affine Cipher
+
+Use an affine cipher to encrypt the 
+message “hello” with the key pair (7, 2).
+
+Use an affine cipher to decrypt the 
+message 
+“PWUFFOGWCHFDWIWEJOUUNJORSM
+DWRHVCMWJUPVCCG”  
+with the key pair (11, 4).
+Solution:
+“best time of the year is spring when flowers 
+bloom”
+No of Possible keys
+Here K1 will be from Z26* and k2 will be from Z26.
+ Here No of elements in Z26=26
+ No of elements in Z26*=12.
+ So no of possible combinations will be = 12 * 26=312.
+ If we Ignore the key pair (1,0), as it doesn’t make 
+change in plaintext at all. No of possible keys in that 
+case will be 311.
+The additive cipher is a special case of an 
+affine cipher in which 
+k1 = 1.
+ The multiplicative cipher is a special case 
+of affine cipher in which k2 = 0.
+What are the possible no of keys 
+for Z60??
+No of elements in  Z60= 60.
+No of elements in Z60*= 16.
+So total no of possible keys= 60 *16=960.
+Euler’s Phi- Function
+ Euler’s Phi-function Ø(n) finds the no of integers that are 
+both smaller than n and relatively prime to n.
+ Zn* = no of elements smaller from n and relatively prime to 
+n.
+No of elements in Zn*= Ø(n) 
+ Relatively Prime: Two positive integer , a and b, are 
+relatively prime if GCD(a,b) = 1. 
+ GCD the largest positive integer number that divides both 
+the numbers without leaving any remainder.
+ 1 is relatively prime with any integer.
+Rules for finding value of Ø(n)
+1.Ø(1)=0.
+2.Ø(p)=p-1 if p is prime.
+3.Ø(m X n)= Ø(m) * Ø(n) if m and n are relatively 
+prime.
+4.Ø(pe)= pe – pe-1
+Find the GCD of given nos.
+ 23,67
+12,15
+14,18
+16,81
+15,16
+6,35
+Exercise
+Rules
+1.Ø(1)=0.
+2.Ø(p)=p-1 if p is prime.
+3.Ø(m X n)= Ø(m) * Ø(n) if m 
+and n are relatively prime.
+4.Ø(pe)= pe – pe-1
+Find the value of below:
+1. Ø(13)
+2. Ø(10)
+3. Ø(30)
+4. Ø(240)
+5. Ø(60)
+6. Ø(19)
+Solution
+1. Ø(13)  =13-1=12  (As 13 is prime, According to Rule 2, Ø(13)
+2. Ø(10) = Ø(5 X 2)   (According to Rule no 3)
+   = Ø(5) * Ø(2)  (According to Rule no 3, 5 and 2 are relatively 
+       prime)
+   = 5-1  *  2-1     (According to Rule no 2, 5 and 2 are prime  
+            numbers)
+   = 4 * 1 = 4
+3. Ø(240)  = Ø( 120 * 2 )
+   = Ø(60 * 2 * 2 )
+    = Ø( 30 * 2 * 2 *2 )
+    = Ø(15 * 2 * 2 * 2 * 2)
+    = Ø( 5 * 3 * 24 )
+    = Ø(5) * Ø(3) * Ø(24) =  4 * 2 * (24 – 23 ) =8 * 8 =64
+Rule no 4
+Continue…
+1. Ø(30) = Ø(5 * 3 * 2)  (According to Rule no 3, 5, 3 and 2 are relatively prime)
+      = Ø(5) * Ø(3) * Ø(2)
+      = 4 * 2 *1   (According to Rule no 2, 5, 3 and 2 are prime numbers)
+      = 8
+Find the No of possible keys for Z30.
+ No of elements in Z30= 30.
+ What will be no of elements in Z30*=??
+ Solution 
+ Ø(30) = Ø(15 * 2) =Ø(15) * Ø(2) = Ø(5 * 3) * Ø(2)
+   = Ø(5) * Ø(3) * Ø(2)
+   = 4 * 2 * 1
+   =8
+So no of possible keys= 30 * 8 =240
+Chosen-Plaintext Attack
+
+Cipher message  is 
+“PWUFFOGWCHFDWIWEJOUUNJORSMDWR
+HVCMWJUPVCCG”
+perform chosen plain text attack.
+Example:
+For algorithm 1 
+Plainttext:et  ciphertext:WC
+For algorithm 2
+Plainttext:et  Ciphertext:WF
+We
+ 
+ can
+ 
+ also
+ 
+ solve
+ 
+ a
+ 
+ set
+ 
+ of
+ 
+ linear
+ 
+ equations
+ 
+with
+ 
+ the
+ 
+ same
+ 
+ modulus
+ 
+ if
+ 
+ the
+ 
+ matrix
+ 
+ formed
+ 
+from
+ 
+ the
+ 
+ coefficients
+ 
+ of
+ 
+ the
+ 
+ variables
+ 
+ is
+ 
+invertible
+.
+ 
+
+Polyalphabetic 
+Cipher
+Polyalphabetic Cipher
+In polyalphabetic substitution, each occurrence 
+of a character may have a different substitute. 
+The relationship between a character in the 
+plaintext to a character in the ciphertext is one-
+to-many. 
+Autokey cipher
+Autokey Cipher
+ Simple polyalphabetic Cipher
+ Key is the stream of subkeys, in which each subkey is 
+used to encrypt the corresponding character in the 
+plaintext.
+ The key K= K1 K2 K3….Kn
+ The K1 will be predetermined value shared secretly 
+between communicating parties.
+ The K2 will be the first plaintext character.
+ The K3 will be the second plaintext character and so 
+on…
+Autokey Cipher
+
+Example
+ Assume that Alice and Bob agreed to use an autokey 
+cipher with initial key value k1 = 12. Now Alice wants to 
+send Bob the message “Attack is today”. Enciphering is 
+done character by character.
+
+Example
+Plaintext= “the house is being sold tonight”
+Key=7
+P.T. T H E H O U S E I S B E I N G S O l D T O N I G H T
+P.T 19 7 4 7 14 20 18 4 8 18 1 4 8 13 6 18 14 8 3 19 14 13 8 6 7 19
+Key 7 19 7 4 7 14 20 18 4 8 18 1 4 8 13 6 18 14 8 3 19 14 13 8 6 7
+C.T 26 26 11 11 21 34 38 22 12 26 19 5 12 21 19 24 32 22 11 22 33 27 21 14 13 26
+8 12 6 7 1
+C.T A A L L V I M W M A T F M V T Y G W L W H B V O N A
+Cryptanalysis of Autokey
+ Hides the single letter frequency statistics of the 
+plaintext.
+ Vulnerable to brute force attack as the first subkey can 
+be only one of the 25 characters. 
+Vigenere cipher
+Vigenere Cipher
+ It uses different strategy to create the key stream.
+ The key stream is repetition of an initial secret key stream 
+of length m.
+We can encrypt the message “She is listening” using the 6-
+character keyword “PASCAL”. 
+Example:
+ Plain text: “She is listening” 
+ Key: “PASCAL”
+P.T. S H E I S L I S T E N I N G
+P.T 18 7 4 8 18 11 8 18 19 4 13 8 13 6
+Key P A S C A L P A S C A L P A
+Key 15 0 18 2 0 11 15 0 18 2 0 11 15 0
+C.T 7 7 22 10 18 22 23 18 11 6 13 19 2 6
+C.T H H W K S W X S L G N T C G
+Vigenere Cipher- Continue..
+ The Vigenere cipher can be considered as a 
+combination of m additive cipher.
+Playfair cipher
+Play Fair Cipher
+ Before Encryption Rules:
+ If two letters in a pair are the same
+ add bogus letter
+ If no of characters in plaintext is odd 
+  add bogus letter at the end
+ For Encryption Rules:
+ If 2 letters in a pair are located in the same row of the secret key, 
+corresponding encrypted character for each letter is next letter to 
+the right in the same row
+ If 2 letters in a pair are located in the same column of secret key, 
+corresponding encrypted character for each letter is beneath it in 
+same column 
+ If 2 letters in a pair are not in the same row or column of the secret 
+key, the corresponding encrypted character for each letter is a 
+letter that is in its own row but in same column as the other letter
+Continue..
+ Key size : 25!
+A B C D E
+F G H I/J K
+L M N O P
+Q R S T U
+V W X Y Z
+Hill cipher
+Hill Cipher
+The key matrix in the Hill cipher needs to have a 
+multiplicative inverse.
+C = P. K
+Plaintext   P = P1 P2 P3 ….Pm
+Example
+Plaintext:    “ACT”.
+Key: 
+  =   0    2   19
+A     C     T
+
+Continue…
+= 16 17 19
+Continue…
+P= C K-1
+ for K-1,
+Step-1  find the det(k)
+Step-2 Find the adj(k)
+K-1 = det(k)-1 * adj(k) 
+ here det(k)-1 is multiplicative inverse of det(k)
+Example:
+Plaintext= retreat now
+Key=“backup”
+Ciphertext=SYICHOLER
+Key=“alphabet”
+Permutation Cipher/ 
+Transposition Cipher
+Permutation Cipher/Transposition 
+Cipher
+
+A transposition cipher does not substitute one 
+symbol for another, instead it changes the 
+location of the symbols. 
+Keyless Transposition 
+Cipher
+Keyless Transposition Cipher
+ Simple transposition ciphers, which were used in the 
+past, are keyless. 
+ A good example of a keyless cipher using the first 
+method is the rail fence cipher. 
+ Plain Text message “Meet me at the park” 
+3.117
+She then creates the ciphertext “MEMATEAKETETHPR”.
+
+Columnar cipher
+ciphertext “MMTAEEHREAEKTTP”.
+Keyed Transposition 
+Cipher
+Keyed Transposition Cipher
+The keyless ciphers permute the characters by 
+using writing plaintext in one way and reading it 
+in another way The permutation is done on the 
+whole plaintext to create the whole ciphertext.
+Another method is to divide the plaintext into 
+groups of predetermined size, called blocks, 
+and then use a key to permute the characters in 
+each block separately.
+The permutation yields
+Permutation Cipher
+ Alice needs to send the message “Enemy attacks tonight” to Bob..
+ The key used for encryption and decryption is a permutation key, which 
+shows how the character are permuted. 
+
+Double Transposition Cipher 
+
+Stream Cipher 
+vs. 
+Block Cipher
+Stream Cipher 
+The literature divides the symmetric ciphers into 
+two broad categories: stream ciphers and block 
+ciphers. 
+Call the plaintext stream P, the ciphertext 
+stream C, and the key stream K.
+
+Continue…
+Example: 
+Additive Cipher, Vigenere Cipher, 
+Monoalphabetic Cipher
+Block Ciphers
+In a block cipher, a group of plaintext symbols 
+of size m (m > 1) are encrypted together 
+creating a group of ciphertext of the same size.
+A single key is used to encrypt the whole block 
+even if the key is made of multiple values. Below 
+figure shows the concept of a block cipher.
+Continue…
+Example:  Playfair Cipher, Hill Cipher
+
+Any Questions??
+Thank You
+References
+ Cryptography and network security – Behrouz a forouzan, 
+debdeep mukhopadhyay
+Congruence
+  Suppose a and b are integers, and m is a positive 
+integer. 
+ Then we write a≡b (mod m) if m divides b−a. 
+ The phrase a≡b (mod m) is called a congruence, and it 
+is read as “a is congruent to b modulo m.” The integer m 
+is called the modulus.
+Continue…
+ Suppose we divide a and b by m, obtaining integer 
+quotients and remainders, where the remainders are 
+between 0 and m−1.
+ That is, a = q1m + r1 and b = q2m + r2, where 0 ≤ r1 ≤ 
+m−1 and 0 ≤ r2 ≤ m−1. 
+ Then it is not difﬁcult to see that a ≡ b (mod m) if and 
+only if r1 = r2. 
+Thus a ≡ b (mod m) 
+if and only if a mod m = b mod m. 
+Example
+2 Mod 10  will be 2
+12 mod 10 will be 2
+ 
+here 2 mod 10= 12 mod 10 
+So we can write that 2 ≡ 12 (mod 10) 
+
+
+--- 2.3.1.pdf ---
+Introduction to Number 
+Theory
+Objectives
+› Congruence: Modular Arithmetic
+› Introduction to field theory 
+› Euler Totient Function 
+› Fermat’s Little Theorem
+Congruence
+› We say that a is congruent to b modulo m, and we write a ≡ b 
+mod m, if m divides b - a.
+•  Example: -2 ≡ 19 (mod 21), 20 ≡ 0 (mod 10).
+› Congruence modulo m is an equivalence relation  on the 
+integers. 
+– any integer is congruent to itself modulo m (reflexivity)
+– a ≡ b mod m, implies that b ≡ a mod m (symmetry)
+– a ≡ b mod m and b ≡ c mod m implies a ≡ c mod m (transitivity)
+
+Concept of congruence
+
+The following are equivalent
+› a ≡ b mod m
+› There is k ε Z, with a = b + km
+› When divided by m, both a and b leave the  same remainder.
+› Equivalence Class of a modulo m consists  of all integers that 
+are obtained by adding a with integral multiples of m
+– called residue class of a mod m
+Example
+› Residue class of 1 mod 4:
+– {1, 1 ± 4, 1 ± 2 * 4, 1 ± 3 * 4,…}
+› The set of residue classes mod m is denoted by Z/mZ.
+– it has m elements, 0, 1, …, m-1
+– this is called a complete set of incongruent  residues (complete 
+system)
+– Examples for complete system for mod 5 is:
+– {0, 1, …, 4}, {-12, -15, 82, -1, 31} etc.
+Residue classes
+› A residue class [a] or [a]n is the set of integers 
+congruent modulo n.
+
+Theorem
+› a ≡ b mod m, and c ≡ d mod m, implies  that – a ≡ – b mod m, 
+a + c ≡ b + d mod m, and ac ≡ bd mod m.
+Application
+›
+ (
+1
+,
+723
+,
+345
+ +
+ 2
+,
+124
+,
+945
+)
+ mod
+ 11
+ =
+ (
+8
+ +
+ 9
+)
+ mod
+ 11
+ =
+6
+›
+ (
+1
+,
+723
+,
+345
+ −
+ 2
+,
+124
+,
+945
+)
+ mod
+ 11
+ =
+ (
+8
+ −
+ 9
+)
+ mod
+ 11
+ =
+10
+›
+ (
+1
+,
+723
+,
+345
+ ×
+ 2
+,
+124
+,
+945
+)
+ mod
+ 11
+ =
+ (
+8
+ ×
+ 9
+)
+ mod
+ 11
+ =
+6
+Example
+Prove that 232 + 1 is divisible by 641.
+Note that: 641 = 640 + 1 = 5*27 +1.  Thus, 5*27   −1 mod 641.
+ (5*27 )4   (−1)4  mod 641
+ 54*228  1 mod 641
+ (625 mod 641)*228  1 mod 641
+ −(24 )*228  1 mod 641
+ 232   −1 mod 641
+ 232 + 1   mod 641
+Tutorial
+› Find 117 mod 13
+› 13   mod 13
+› 11  − mod 13
+› 112   mod 13 (Squaring at both side)
+› 116   mod 13 (cubing at the both side)
+› 117   mod 13 (multiply 11 at the both side)
+Tutorial
+› Show 23 x 34 x 52 + 1   mod 17
+› 16  − mod 17
+› 23 x 2  − mod 17
+› 23 x 2 x 34  − 34 mod 17 (Multiply 34 at both side)
+› 23 x 2 x 34  − 4 mod 17
+› 23 x 2 x 34 x 52  − 100mod 17 (Multiply 52 at both 
+side)
+› 23 x 2 x 34 x 52  − 2 mod 17
+› 23 x 34 x 52  − 1 mod 17
+Groups <G, ●>
+› Axioms to be obeyed
+– (A1) Closure: If a and b belong to G, then a • b is also in G.
+– (A2) Associative: a • (b •  c) = (a •  b) •  c for all a, b, c in G.
+– (A3) Identity element: There is an element e in such that a •  
+e = e •  a = a for all a in G.
+– (A4) Inverse element: For each a in G, there is an element in 
+such that a • a’ = a’ • a = e.
+– (A5) Commutative: a •  b = b •  a for all a, b in G.
+Tutorial
+› A very interesting group is the permutation group. The
+set is the set of all permutations, and the operation
+is composition: applying one permutation after
+another.
+
+Continue…
+
+Example
+› Is the group H = <Z10, +> a subgroup of the group G
+= <Z12, +>?
+› Solution
+› The answer is no. Although H is a subset of G, the
+operations defined for these two groups are different.
+The operation in H is addition modulo 10; the
+operation in G is addition modulo 12.
+Ring <G, +, x>
+› Axioms to be obeyed
+– (A1) Closure: If a and b belong to G, then a • b is also in G.
+– (A2) Associative: a • (b •  c) = (a •  b) •  c for all a, b, c in G.
+– (A3) Identity element: There is an element e in such that a •  
+e = e •  a = a for all a in G.
+– (A4) Inverse element: For each in , there is an element in 
+such that a • a’ = a’ • a = e.
+– (A5) Commutative: a •  b = b •  a for all a, b in G.
+Ring <G, +, x>
+› Axioms to be obeyed
+– (M1) Closure under multiplication: If a and b belong to R, 
+then ab is also in R.
+– (M2) Associativity of multiplication: a(bc) = (ab)c for all a, b, c 
+in R.
+– (M3) Distributive laws: a(b + c) = ab + ac for all a, b, c in R. 
+(a + b)c = ac + bc for all a, b, c in R.
+– (M4) Commutativity of multiplication: ab = ba for all a, b in R.
+– (M5) Multiplicative identity: There is an element 1 in R such 
+that a1 = 1a = a for all a in R.
+– (M6) No zero divisors: If a, b in R and ab = 0, then either a = 
+0 or b = 0.
+Fields <F, +, x>
+› Axioms to be obeyed
+– (A1) Closure: If a and b belong to G, then a • b is also in G.
+– (A2) Associative: a • (b •  c) = (a •  b) •  c for all a, b, c in G.
+– (A3) Identity element: There is an element e in such that a •  
+e = e •  a = a for all a in G.
+– (A4) Inverse element: For each in , there is an element in 
+such that a • a’ = a’ • a = e.
+– (A5) Commutative: a •  b = b •  a for all a, b in G.
+Field <F, +, x>
+› Axioms to be obeyed
+– (M1) Closure under multiplication: If a and b belong to R, 
+then ab is also in R.
+– (M2) Associativity of multiplication: a(bc) = (ab)c for all a, b, c 
+in R.
+– (M3) Distributive laws: a(b + c) = ab + ac for all a, b, c in R. 
+(a + b)c = ac + bc for all a, b, c in R.
+– (M4) Commutativity of multiplication: ab = ba for all a, b in R.
+– (M5) Multiplicative identity: There is an element 1 in R such 
+that a1 = 1a = a for all a in R.
+– (M6) No zero divisors: If a, b in R and ab = 0, then either a = 
+0 or b = 0.
+Field <F, +, x>
+› Axioms to be obeyed
+– (M7) Multiplicative inverse: For each a in F, except 0, there is 
+an element a-1 in F such that aa-1 = (a-1)a = 1.
+Zero Divisors
+› The zero divisors of the residue class Z/mZ is a +  mZ, with 1 
+< gcd(a, m) < m.
+› Proof: If a + mZ is a zero divisor of Z/mZ, then  there is an 
+integer b with ab≡0 mod m, but neither a nor b is 0 mod m. 
+Thus, m|ab, but neither a nor  b => 1 < gcd(a, m) < m.
+› Conversely, if 1 < gcd(a, m) < m, then define  b=m/gcd(a, m), 
+then both a and b are nonzero mod m. But ab≡0 (mod m). 
+Thus a + mZ is a zero divisor  of Z/mZ.
+› Corollary: If p is prime, then Z/pZ has no zero  divisors.
+Summary
+
+Divisibility
+› a nonzero b divides a if a = mb for some m, where a, 
+b, and m are integers.
+› if b | a, we say that b is a divisor of a.
+› If b | g and b | h, then b | (mg + nh) for arbitrary 
+integers m and n.
+Greatest Common Divisor (GCD)
+› The positive integer c is said to be the greatest 
+common divisor of a and b if
+1. c is a divisor of a and of b.
+2. Any divisor of a and b is a divisor of c.
+› An equivalent definition is the following:
+gcd(a, b) = max[k, such that k | a and k | b]
+› gcd(a, b) = gcd(a, -b) = gcd(-a, b) = gcd(-a,-b) = gcd( 
+|a| ,  |b|)
+Relative Prime
+› Two integers a and b are relatively prime if their only 
+common positive integer factor is 1.
+› equivalent to saying that a and b are relatively prime 
+if gcd(a, b) = 1
+Finding the Greatest Common Divisor
+› The Euclidean algorithm
+
+Find the GCD of 25 and 60.
+
+Find the GCD of 2740 and 1760.
+
+Multiplicative Inverse
+› In Z
+n
+, two numbers a and b are the multiplicative 
+inverse of each other if
+› Find all multiplicative inverses in Z10
+.
+–(1, 1), (3, 7) and (9, 9)
+
+Multiplicative Inverse
+› Find all multiplicative inverse pairs in Z
+11
+.
+› (1, 1), (2, 6), (3, 4), (5, 9), (7, 8), (9, 9), and (10, 10)
+Multiplicative Inverse
+› The extended Euclidean algorithm finds the multiplicative 
+inverses of b in Zn when n and b are given and 
+GCD (n, b) = 1.
+› The multiplicative inverse of b is the value of t after being 
+mapped to Zn.
+Example
+› Compute the 28-1 mod 75
+– 75=2x28+19
+– 28=1x19+9
+– 19=2x9+1
+– 9=9x1
+› So, GCD(28,75)=1. So, what is the inverse?
+› Can you express the GCD as a linear combination of 
+28 and 75?
+Example
+› 19=75-2x28
+› 9=28-19=28-(75-2x28)=-75+3x28
+› 1=19-2x9=(75-2x28)-2x(-75+3x28)= 3x75-8x28
+› Thus, gcd(28,75)=1=3x75-8x28.
+› So, what is 28-1 mod 75?
+› Answer is -8 mod 75 = 67
+So, what is the lesson?
+› All the remainders generated by the EA algorithm can 
+be expressed as a linear combination of the +ve
+integers a and b.
+› And the expression is unique.
+› The extended EA algorithm generates/computes this 
+linear combination in a systematic fashion
+› For 0 ≤ j ≤ m, we have that rj = sjr0+tjr1, where the 
+rj ‘s are as defined in the Euclidean Algorithm, and 
+the sj‘s and the tj‘s are as defined in the recurrence.
+
+Extended Euclidean algorithm to find 
+multiplicative inverse
+
+Example
+
+Improvement
+
+Find the multiplicative inverse of 11 in Z
+26
+.
+
+Find the multiplicative inverse of 23 in Z
+100
+.
+
+Find the inverse of 12 in Z
+26
+.
+
+Find the inverse of x in 
+Z
+b
+.
+› x (b – 2) mod b (Thanks to Fermat theorem)
+Euler's Totient function (Phi-Function)
+› Suppose a ≥ 1 and m ≥ 2 are integers. If  gcd(a, m)=1, then we 
+say that a and m are relatively prime.
+› The number of integers in Zm (m>1),  that are relatively prime 
+to m and  does not exceed m is denoted by  Φ(m), called 
+Euler’s Totient function  or phi function. 
+› Φ(1)=1
+› Φ(p)= p – 1
+› Φ(p x q)=Φ(p) x Φ(q) if p and q are relative price
+› Φ(pe)=pe - pe – 1 if p is prime
+Proof of Φ(p x q)=Φ(p) x Φ(q)
+› Φ(n) = Φ(pq) = Φ(p) * Φ(q) = (p - 1) * (q - 1)
+› p x q = {1, … , (pq - 1)}
+› {p, 2p, ... , (q - 1)p} and {q, 2q, ... , (p - 1)q} are not 
+relative primes in p x q 
+› Φ(n) = (p x q - 1) – [(q - 1) + (p - 1)]
+› = p x q - (p + q) + 1
+› = (p – 1) x (q - 1)
+› = Φ(p) * Φ(q) 
+Proof of Φ(pe) = pe - pe – 1 
+› Φ(pa) = pa - pa-1
+› Evident for a=1
+› For a>1, out of the elements 1, 2, …, pa the elements 
+p, p2, pa-1p are not coprime to pa.
+› Rest are co-prime.
+› Thus Φ(pa) = pa - pa-1
+› = pa(1 - 1/p)
+Example
+What is the value of (13)?
+Example 9.7
+Solution
+Because 13 is a prime, (13) = (13 −1) = 12.
+What is the value of (10)?
+Example 9.8
+Solution
+We can use the third rule: (10) = (2) × (5) = 1 × 4 = 4, because 2 
+and 5 are primes.
+Example
+What is the value of (240)?
+Example 9.9
+Solution
+We can write 240 = 24 × 31 × 51. Then
+                 (240) = (24 −23) × (31 − 30) × (51 − 50) = 64
+Can we say that (49) = (7) × (7) = 6 × 6 = 36?
+Example 9.10
+Solution
+No. The third rule applies when m and n are relatively prime. 
+Here 49 = 72. We need to use the fourth rule: (49) = 72 − 71 = 42.
+Fermat’s Little Theorem
+First Version
+ap ≡ a mod p
+ap − 1 ≡ 1 mod p
+Second Version
+Example
+Find the result of 610 mod 11.
+Solution
+We have 610 mod 11 = 1. This is the first version of Fermat’s little 
+theorem where p = 11.
+Find the result of 312 mod 11.
+Solution
+Here the exponent (12) and the modulus (11) are not the same. 
+With substitution this can be solved using Fermat’s little theorem.
+
+Euler’s Theorem
+First Version
+a(n) ≡ 1 (mod n)
+Second Version
+a k × (n) + 1 ≡  a (mod n)
+The second version of Euler’s theorem is used in the 
+RSA cryptosystem in Chapter 10.
+Example
+Find the result of 624 mod 35.
+Solution
+We have 624 mod 35 = 6(35) mod 35 = 1.
+Find the result of 2062 mod 77.
+Solution
+If we let k = 1 on the second version, we have 
+          2062 mod 77 = (20 mod 77) (20(77) + 1 mod 77) mod 77 
+                               = (20)(20) mod 77 = 15.
+Example
+Find the result of 624 mod 35.
+Solution
+We have 624 mod 35 = 6(35) mod 35 = 1.
+Find the result of 2062 mod 77.
+Solution
+If we let k = 1 on the second version, we have 
+          2062 mod 77 = (20 mod 77) (20(77) + 1 mod 77) mod 77 
+                               = (20)(20) mod 77 = 15.
+Example
+Find the remainder when 721001 is divided by 31.
+› Since, 72≡10 (mod 31). Hence 721001 ≡101001(mod 31).
+› Now from Fermat’s Theorem, 1030 ≡1 (mod 31)  [note 31 is prime]
+› Raising both sides to the power 33,  10990 ≡1 (mod 31)
+› Thus,
+– 101001=1099010810210=1(102)410210=1(7)47.10=492.7.
+– 10=(-13)2.7.10=(14.7).10=98.10=5.10=19 (mod 31).
+Points to Ponder
+Find the least residue of 7973 (mod72) 
+[Note 72 is not a prime number].
+
+
+--- 2.3.2.pdf ---
+More Number Theoretic 
+Results
+Objectives
+› Chinese Remainder Theorem (CRT)
+– expressing the whole in parts
+› Cyclic groups and a test for primitive-ness
+The Chinese Remainder Theorem (CRT) 
+› It solves a system of congruence.
+› Suppose m1, m2,…,mr are pairwise relatively prime positive 
+integers.
+› System of congruence:
+
+Example
+› x ≡3 mod 5
+› x ≡1 mod 3
+› x ≡ ? mod 15
+› You can verify that the only answer is 13 mod 15. The 
+first thing to explain why there is only one solution?
+Uniqueness
+› X(x)=(x mod 5, x mod 3)
+Note that the mapping is bijective…
+Solution To Chinese Remainder Theorem
+› Find M = m1 × m2 × … × mk. This is the common modulus.
+› Find M1 = M/m1, M2 = M/m2, …, Mk = M/mk.
+› Find the multiplicative inverse of M1, M2, …, Mk using the 
+corresponding moduli (m1, m2, …, mk). Call the inverses           
+M1
+−1, M2
+−1, …, Mk −1.
+› The solution to the simultaneous equations is
+
+Example
+› M = 5x3 = 15
+› M1 = 15/5 = 3, 3-1mod 5=2
+› M2 = 15/3 = 5, 5-1mod 3=2
+› x = (3x3x2+1x5x2) mod 15 = 28 mod 15 = 13
+Example
+The following is an example of a set of equations with different 
+moduli:
+
+Example
+Find the solution to the simultaneous equations:
+Solution
+We follow the four steps.
+   1. M = 3 × 5 × 7 = 105
+   2. M1 = 105 / 3 = 35, M2 = 105 / 5 = 21, M3 = 105 / 7 = 15
+   3. The inverses are M1
+−1 = 2, M2
+−1 = 1, M3 −1 = 1
+   4. x = (2 × 35 × 2 + 3 × 21 × 1 + 2 × 15 × 1) mod 105 = 23 mod 105
+
+Example
+Find an integer that has a remainder of 3 when divided by 7 and 
+13, but is divisible by 12.
+Solution
+This is a CRT problem. We can form three equations and solve 
+them to find the value of x.
+If we follow the four steps, we find x = 276. We can check that 
+276 = 3 mod 7, 276 = 3 mod 13 and 276 is divisible by 12 (the 
+quotient is 23 and the remainder is zero).
+Example
+Assume we need to calculate z = x + y where x = 123 and y = 334, 
+but our system accepts only numbers less than 100. These 
+numbers can be represented as follows:
+Adding each congruence in x with the corresponding congruence 
+in y gives
+Now three equations can be solved using the Chinese remainder 
+theorem to find z. One of the acceptable answers is z = 457.
+Other Useful Facts
+› Suppose G is a multiplicative group of order n, and g ε G. 
+Then the order of g divides n.
+› Corollary 1: If b ε Zn*, then bΦ(n)≡1 (mod n)
+› Corollary 2: Suppose p is prime and bεZp. Then bp ≡ b 
+(mod p)
+Cyclic Group
+› If p is prime, then Zp* is a group of order p-1 and any 
+element in Zp* has an order which divides (p-1).
+› In fact, if p is prime, then there exists at least one element 
+in Zp* which has order equal to p-1.
+– this is called cyclic group…
+Primitive Element
+› If p is prime, then Zp* is a cyclic group.
+› Any element α having order p-1 mod p is called a 
+primitive element. Thus α is a primitive element iff:
+
+› n=19, There are 6 primitive elements.
+› Note the order of each element in Z19*.
+› Is there a relation?
+
+Order of any element
+› Any element β in Zp * (where p is prime) can be written 
+uniquely in the form β=αi, where α is a primitive element 
+and 0≤i≤p-2.
+› The order of β is:
+› β is itself primitive iff gcd(p-1, i) = 1. Hence, what is the 
+number of primitive elements modulo p?
+
+Example
+› p=13
+› Thus Φ(13-1)= Φ(12)= Φ(3x22)=12(1-1/3)(1-
+1/2)=12x(2/3)x(1/2)=4.
+› Question: Is 2 a primitive element of Z13
+*?
+– generate all the (p-1) powers of 2.
+– lengthy process if p is large.
+Theorem
+
+References
+› D. Stinson, Cryptography: Theory and Practice, Chapman 
+& Hall/CRC
+› W. Stallings, “Cryptography and Network Security”
+
+
+--- 2.3.pdf ---
+Introduction to Number 
+Theory
+Objectives
+› Congruence: Modular Arithmetic
+› Introduction to field theory 
+› Euler Totient Function 
+› Fermat’s Little Theorem
+Congruence
+› We say that a is congruent to b modulo m, and we write a ≡ b 
+mod m, if m divides b - a.
+•  Example: -2 ≡ 19 (mod 21), 20 ≡ 0 (mod 10).
+› Congruence modulo m is an equivalence relation  on the 
+integers. 
+– any integer is congruent to itself modulo m (reflexivity)
+– a ≡ b mod m, implies that b ≡ a mod m (symmetry)
+– a ≡ b mod m and b ≡ c mod m implies a ≡ c mod m (transitivity)
+
+Concept of congruence
+
+Divisibility
+› a nonzero b divides a if a = mb for some m, where a, b, 
+and m are integers.
+› if b | a, we say that b is a divisor of a.
+› If b | g and b | h, then b | (mg + nh) for arbitrary 
+integers m and n.
+Greatest Common Divisor (GCD)
+› The positive integer c is said to be the greatest common 
+divisor of a and b if
+1. c is a divisor of a and of b.
+2. Any divisor of a and b is a divisor of c.
+› An equivalent definition is the following:
+gcd(a, b) = max[k, such that k | a and k | b]
+› gcd(a, b) = gcd(a, -b) = gcd(-a, b) = gcd(-a,-b) = gcd( |a|
+,  |b|)
+Relative Prime
+› Two integers a and b are relatively prime if their only 
+common positive integer factor is 1.
+› equivalent to saying that a and b are relatively prime if 
+gcd(a, b) = 1
+Finding the Greatest Common Divisor
+› The Euclidean algorithm
+
+Find the GCD of 25 and 60.
+
+Find the GCD of 2740 and 1760.
+
+Multiplicative Inverse
+› In Z
+n
+, two numbers a and b are the multiplicative inverse 
+of each other if
+› Find all multiplicative inverses in Z10
+.
+–(1, 1), (3, 7) and (9, 9)
+
+Multiplicative Inverse
+› Find all multiplicative inverse pairs in Z
+11
+.
+› (1, 1), (2, 6), (3, 4), (5, 9), (7, 8), (9, 9), and (10, 10)
+Multiplicative Inverse
+› The extended Euclidean algorithm finds the multiplicative 
+inverses of b in Zn when n and b are given and 
+GCD (n, b) = 1.
+› The multiplicative inverse of b is the value of t after being 
+mapped to Zn.
+Example
+› Compute the 28-1 mod 75
+– 75=2x28+19
+– 28=1x19+9
+– 19=2x9+1
+– 9=9x1
+› So, GCD(28,75)=1. So, what is the inverse?
+› Can you express the GCD as a linear combination of 28 
+and 75?
+Example
+› 19=75-2x28
+› 9=28-19=28-(75-2x28)=-75+3x28
+› 1=19-2x9=(75-2x28)-2x(-75+3x28)= 3x75-8x28
+› Thus, gcd(28,75)=1=3x75-8x28.
+› So, what is 28-1 mod 75?
+› Answer is -8 mod 75 = 67
+So, what is the lesson?
+› All the remainders generated by the EA algorithm can be 
+expressed as a linear combination of the +ve integers a 
+and b.
+› And the expression is unique.
+› The extended EA algorithm generates/computes this 
+linear combination in a systematic fashion
+› For 0 ≤ j ≤ m, we have that rj = sjr0+tjr1, where the rj‘s 
+are as defined in the Euclidean Algorithm, and the sj‘s and 
+the tj‘s are as defined in the recurrence.
+
+Extended Euclidean algorithm to find 
+multiplicative inverse
+
+Example
+
+Improvement
+
+Find the multiplicative inverse of 11 in Z
+26
+.
+
+Find the multiplicative inverse of 23 in Z
+100
+.
+
+Find the inverse of 12 in Z
+26
+.
+
+Find the inverse of x in 
+Z
+b
+.
+› x (b – 2) mod b (Thanks to Fermat theorem)
+Euler's Totient function (Phi-Function)
+› Suppose a ≥ 1 and m ≥ 2 are integers. If  gcd(a, m)=1, then we 
+say that a and m are relatively prime.
+› The number of integers in Zm (m>1),  that are relatively prime 
+to m and  does not exceed m is denoted by  Φ(m), called 
+Euler’s Totient function  or phi function. 
+› Φ(1)=1
+› Φ(p)= p – 1
+› Φ(p x q)=Φ(p) x Φ(q) if p and q are relative price
+› Φ(pe)=pe - pe – 1 if p is prime
+Proof of Φ(p x q)=Φ(p) x Φ(q)
+› Φ(n) = Φ(pq) = Φ(p) * Φ(q) = (p - 1) * (q - 1)
+› p x q = {1, … , (pq - 1)}
+› {p, 2p, ... , (q - 1)p} and {q, 2q, ... , (p - 1)q} are not 
+relative primes in p x q 
+› Φ(n) = (p x q - 1) – [(q - 1) + (p - 1)]
+› = p x q - (p + q) + 1
+› = (p – 1) x (q - 1)
+› = Φ(p) * Φ(q) 
+Proof of Φ(pe) = pe - pe – 1 
+› Φ(pa) = pa - pa-1
+› Evident for a=1
+› For a>1, out of the elements 1, 2, …, pa the elements p, p2, 
+pa-1p are not coprime to pa.
+› Rest are co-prime.
+› Thus Φ(pa) = pa - pa-1
+› = pa(1 - 1/p)
+Example
+What is the value of (13)?
+Example 9.7
+Solution
+Because 13 is a prime, (13) = (13 −1) = 12.
+What is the value of (10)?
+Example 9.8
+Solution
+We can use the third rule: (10) = (2) × (5) = 1 × 4 = 4, because 2 
+and 5 are primes.
+Example
+What is the value of (240)?
+Example 9.9
+Solution
+We can write 240 = 24 × 31 × 51. Then
+                 (240) = (24 −23) × (31 − 30) × (51 − 50) = 64
+Can we say that (49) = (7) × (7) = 6 × 6 = 36?
+Example 9.10
+Solution
+No. The third rule applies when m and n are relatively prime. 
+Here 49 = 72. We need to use the fourth rule: (49) = 72 − 71 = 42.
+Fermat’s Little Theorem
+First Version
+ap ≡ a mod p
+ap − 1 ≡ 1 mod p
+Second Version
+Example
+Find the result of 610 mod 11.
+Solution
+We have 610 mod 11 = 1. This is the first version of Fermat’s little 
+theorem where p = 11.
+Find the result of 312 mod 11.
+Solution
+Here the exponent (12) and the modulus (11) are not the same. 
+With substitution this can be solved using Fermat’s little theorem.
+
+Euler’s Theorem
+First Version
+a(n) ≡ 1 (mod n)
+Second Version
+a k × (n) + 1 ≡  a (mod n)
+The second version of Euler’s theorem is used in the 
+RSA cryptosystem in Chapter 10.
+Example
+Find the result of 624 mod 35.
+Solution
+We have 624 mod 35 = 6(35) mod 35 = 1.
+Find the result of 2062 mod 77.
+Solution
+If we let k = 1 on the second version, we have 
+          2062 mod 77 = (20 mod 77) (20(77) + 1 mod 77) mod 77 
+                               = (20)(20) mod 77 = 15.
+Example
+Find the result of 624 mod 35.
+Solution
+We have 624 mod 35 = 6(35) mod 35 = 1.
+Find the result of 2062 mod 77.
+Solution
+If we let k = 1 on the second version, we have 
+          2062 mod 77 = (20 mod 77) (20(77) + 1 mod 77) mod 77 
+                               = (20)(20) mod 77 = 15.
+Example
+Find the remainder when 721001 is divided by 31.
+› Since, 72≡10 (mod 31). Hence 721001 ≡101001(mod 31).
+› Now from Fermat’s Theorem, 1030 ≡1 (mod 31)  [note 31 is prime]
+› Raising both sides to the power 33,  10990 ≡1 (mod 31)
+› Thus,
+– 101001=1099010810210=1(102)410210=1(7)47.10=492.7.
+– 10=(-13)2.7.10=(14.7).10=98.10=5.10=19 (mod 31).
+Points to Ponder
+Find the least residue of 7973 (mod72) 
+[Note 72 is not a prime number].
